@@ -161,12 +161,12 @@ namespace BabbelProject
             }
             else if ((bool)(InfosExo[0].ItemArray[6]))
             {
-                ExoDesordre ExoDesordre = new ExoDesordre(InfosExo[0]);
+                ExoDesordre ExoDesordre = new ExoDesordre(InfosExo[0], Babbel);
                 ExoDesordre.ShowDialog();
             }
             else
             {
-                ExoTrou ExoATrou = new ExoTrou(InfosExo[0]);
+                ExoTrou ExoATrou = new ExoTrou(InfosExo[0], Babbel);
                 ExoATrou.ShowDialog();
             }
 

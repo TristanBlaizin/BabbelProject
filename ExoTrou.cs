@@ -13,16 +13,18 @@ namespace BabbelProject
     public partial class ExoTrou : Form
     {
 
-        DataRow InfosExo;
+        public DataRow InfosExo;
+        public DataSet Babbel;
         public ExoTrou()
         {
             InitializeComponent();
         }
 
-        public ExoTrou(DataRow InfosExo)
+        public ExoTrou(DataRow InfosExo, DataSet BDD)
         {
             InitializeComponent();
             this.InfosExo = InfosExo;
+            this.Babbel = BDD;
         }
         private void ExoTrou_Load(object sender, EventArgs e)
         {

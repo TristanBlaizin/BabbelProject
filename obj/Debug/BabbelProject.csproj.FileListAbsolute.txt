@@ -31,3 +31,15 @@ C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.pdb
 C:\Users\Admin\GIT\BabbelProject\bin\Debug\BabbelProject.exe.config
 C:\Users\Admin\GIT\BabbelProject\bin\Debug\BabbelProject.exe
 C:\Users\Admin\GIT\BabbelProject\bin\Debug\BabbelProject.pdb
+C:\Users\thesa\Documents\GIT\BabbelProject\bin\Debug\BabbelProject.exe.config
+C:\Users\thesa\Documents\GIT\BabbelProject\bin\Debug\BabbelProject.exe
+C:\Users\thesa\Documents\GIT\BabbelProject\bin\Debug\BabbelProject.pdb
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.csprojAssemblyReference.cache
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.Accueil.resources
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.ExoDesordre.resources
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.ExoTrou.resources
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.Properties.Resources.resources
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.csproj.GenerateResource.cache
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.csproj.CoreCompileInputs.cache
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.exe
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.pdb
