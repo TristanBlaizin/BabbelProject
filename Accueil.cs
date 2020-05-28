@@ -104,8 +104,9 @@ namespace BabbelProject
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb";
-            // C:\BDD\baseLangue.mbd
+            ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source =  C:\BDD\baseLangue.mdb ";
+            // C:\BDD\baseLangue.mdb
+            //C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb
             connec = new OleDbConnection();
             connec.ConnectionString = ch_connect;
             InitDeconnecte();
@@ -155,15 +156,18 @@ namespace BabbelProject
             TestExoList();
             if ((int)(InfosExo[0].ItemArray[5]) == 0)
             {
-                Form = new Form();
+                MessageBox.Show("VocOu grammaire");
+
             }
             else if ((bool)(InfosExo[0].ItemArray[6]))
             {
-                str2 += "Desordre";
+                ExoDesordre ExoDesordre = new ExoDesordre(InfosExo[0]);
+                ExoDesordre.ShowDialog();
             }
             else
             {
-                str2 += "Texte à trou";
+                ExoTrou ExoATrou = new ExoTrou(InfosExo[0]);
+                ExoATrou.ShowDialog();
             }
 
 

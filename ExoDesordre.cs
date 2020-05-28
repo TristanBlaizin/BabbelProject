@@ -12,9 +12,20 @@ namespace BabbelProject
 {
     public partial class ExoDesordre : Form
     {
+        DataRow InfosExo;
         public ExoDesordre()
         {
             InitializeComponent();
+        }
+
+        public ExoDesordre(DataRow InfosExo)
+        {
+            InitializeComponent();
+            this.InfosExo = InfosExo;
+        }
+        private void ExoDesordre_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

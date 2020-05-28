@@ -20,3 +20,14 @@ C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\obj\Debug\Babbel
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\obj\Debug\BabbelProject.csproj.CoreCompileInputs.cache
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\obj\Debug\BabbelProject.exe
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\obj\Debug\BabbelProject.pdb
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.csprojAssemblyReference.cache
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.Accueil.resources
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.ExoTrou.resources
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.Properties.Resources.resources
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.csproj.GenerateResource.cache
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.csproj.CoreCompileInputs.cache
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.exe
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.pdb
+C:\Users\Admin\GIT\BabbelProject\bin\Debug\BabbelProject.exe.config
+C:\Users\Admin\GIT\BabbelProject\bin\Debug\BabbelProject.exe
+C:\Users\Admin\GIT\BabbelProject\bin\Debug\BabbelProject.pdb
