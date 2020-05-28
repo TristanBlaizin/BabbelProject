@@ -16,5 +16,10 @@ namespace BabbelProject
         {
             InitializeComponent();
         }
+
+        private void ExoTrou_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

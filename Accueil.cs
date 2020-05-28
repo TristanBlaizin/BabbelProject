@@ -66,6 +66,41 @@ namespace BabbelProject
             }  
         }
 
+        public void TestExoList()
+        {
+            string utilisateur = cbxUtilisateur.SelectedItem.ToString();
+            string prenom = utilisateur.Split(' ')[0];
+            DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
+            string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
+            DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
+            DataRow[] InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0].ToString()}'");
+            string str = string.Empty;
+            string str2 = string.Empty;
+            foreach (DataRow row in InfosExo)
+            {
+                foreach (object obj in row.ItemArray)
+                {
+                    str += $"{obj.ToString()} ";
+                }
+                str += "\n";
+                if ((int)(row.ItemArray[5]) == 0)
+                {
+                    str2 += "Vocabulaire ou Grammaire";
+                }
+                else if ((bool)(row.ItemArray[6]))
+                {
+                    str2 += "Desordre";
+                }
+                else
+                {
+                    str2 += "Texte à trou";
+                }
+                str2 += "\n";
+            }
+            label4.Text = str;
+            label5.Text = str2;
+        }
+
         
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -81,8 +116,7 @@ namespace BabbelProject
                 string prenom = row.ItemArray[2].ToString();
                 string nom = row.ItemArray[1].ToString();
                 cbxUtilisateur.Items.Add($"{prenom} {nom}");
-            }
-            
+            }        
         }
 
         private void CbxUtilisateur_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,29 +152,20 @@ namespace BabbelProject
             DataRow[] InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0].ToString()}'");
             string str = string.Empty;
             string str2 = string.Empty;
-            foreach (DataRow row in InfosExo)
+            TestExoList();
+            if ((int)(InfosExo[0].ItemArray[5]) == 0)
             {
-                foreach (object obj in row.ItemArray)
-                {
-                    str += $"{obj.ToString()} ";
-                }
-                str += "\n";
-                if((int)(row.ItemArray[5]) == 0)
-                {
-                    str2 += "Vocabulaire ou Grammaire";
-                }
-                else if((bool)(row.ItemArray[6]))
-                {
-                    str2 += "Desordre";
-                }
-                else
-                {
-                    str2 += "Texte à trou";
-                }
-                str2 += "\n";
+                Form = new Form();
             }
-            label4.Text = str;
-            label5.Text = str2;
+            else if ((bool)(InfosExo[0].ItemArray[6]))
+            {
+                str2 += "Desordre";
+            }
+            else
+            {
+                str2 += "Texte à trou";
+            }
+
 
         }
 
