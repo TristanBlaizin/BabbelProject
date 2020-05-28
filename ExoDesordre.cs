@@ -14,6 +14,31 @@ namespace BabbelProject
     {
         public DataRow InfosExo;
         public DataSet Babbel;
+        public string phrase;
+        public void InitPhrase()
+        {
+            Random rnd = new Random();
+            string[] tblphrase = phrase.Split(' ').OrderBy(word => rnd.Next()).ToArray(); ;
+            int x = grpContainer.Location.X + 10;
+            int y = (grpContainer.Location.Y - grpContainer.Size.Height) + 30;
+            for (int i = 0; i < phrase.Length; i++)
+            {
+
+                Label lbl = new Label();
+                grpContainer.Controls.Add(lbl);
+                lbl.Name = $"lbl_{i}";
+                lbl.Text = tblphrase[i];
+                lbl.Location = new Point(x, y);
+                lbl.Visible = true;
+                lbl.AutoSize = true;
+                x += 100;
+                if (x > (grpContainer.Location.X + grpContainer.Size.Width))
+                {
+                    x = grpContainer.Location.X + 10;
+                    y += 30;
+                }
+            }
+        }
         public ExoDesordre()
         {
             InitializeComponent();
@@ -27,21 +52,10 @@ namespace BabbelProject
         }
         private void ExoDesordre_Load(object sender, EventArgs e)
         {
-            int codePhrase = (int)InfosExo.ItemArray[5];
             lblRegle.Text = InfosExo.ItemArray[3].ToString();
-            
-            string[] phrase = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString().Split(' ');
-            int y = 10;
-            for(int i = 0; i <= phrase.Length; i++)
-            {
-                
-                Label lbl = new Label();
-                lbl.Name = $"lbl_{i}";
-                lbl.Text = phrase[i];
-                lbl.Location = new Point(100, y);
-                lbl.Visible = true;
-                y++;
-            }
+            int codePhrase = (int)InfosExo.ItemArray[5];
+            phrase = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
+            InitPhrase();
         }
     }
 }
