@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 namespace BabbelProject
 {
@@ -18,9 +19,23 @@ namespace BabbelProject
 
         public DataSet Babbel = new DataSet();
 
+        public bool firstLoad = true;
+
         public Accueil()
         {
             InitializeComponent();
+        }
+
+        public void ChangeFirstLoad()
+        {
+            lblPresentation1.Visible = false;
+            lblPresentation2.Visible = false;
+            lblPresentation3.Visible = false;
+            lblPresentation4.Visible = false;
+            lblPresentation5.Visible = false;
+            lblTitleCours.Visible = true;
+            lblTitleLesson.Visible = true;
+            btnExo.Visible = true;
         }
 
         public void InitDeconnecte()
@@ -51,11 +66,11 @@ namespace BabbelProject
             }  
         }
 
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Shadow\Desktop\Samuel67000\BabbelProject";
-            //C:\BDD\baseLangue.mdb Sam BDD
+            ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb";
+            // C:\BDD\baseLangue.mbd
             connec = new OleDbConnection();
             connec.ConnectionString = ch_connect;
             InitDeconnecte();
@@ -72,6 +87,12 @@ namespace BabbelProject
 
         private void CbxUtilisateur_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (firstLoad)
+            {
+                firstLoad = false;
+                ChangeFirstLoad();
+            }
             string utilisateur = cbxUtilisateur.SelectedItem.ToString();
             string prenom = utilisateur.Split(' ')[0];
             DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
@@ -83,6 +104,8 @@ namespace BabbelProject
             lblLesson.Text = InfosLecons.ItemArray[2].ToString();
             lblCommentLesson.Text = InfosLecons.ItemArray[3].ToString();
             lblExo.Text = $"Exercices terminés: 0/{NbExo.ToString()}";
+            pictureBox2.Visible = true;
+
         }
 
         private void BtnExo_Click(object sender, EventArgs e)
@@ -121,5 +144,35 @@ namespace BabbelProject
 
         }
 
+        private void cbxUtilisateur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        int largeur= 0;
+        int hauteur = 0; 
+        private void testdrap_Click(object sender, EventArgs e)
+        {
+            int exoTerm = 8; //Modifier la source après  que un exo soit fini 
+            hauteur +=195;
+            Image nomImage = pictureBox1.Image;
+            pictureBox1.Size = new Size(hauteur, largeur);
+            pictureBox1.Visible = true;
+            string utilisateur = cbxUtilisateur.SelectedItem.ToString();
+            string prenom = utilisateur.Split(' ')[0];
+            DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
+            string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
+            DataRow InfosCours = Babbel.Tables["Cours"].Select($"numCours = '{codeCourActuel}'")[0];
+            DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
+            int NbExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0]}'").Length;
+            if (NbExo == 9)
+            {
+                largeur = exoTerm * (132 / NbExo);
+            }
+            else
+            {
+                largeur = exoTerm * (140 / NbExo);
+            }
+        }
     }
 }

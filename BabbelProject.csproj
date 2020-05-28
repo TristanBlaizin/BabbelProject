@@ -46,13 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Accueil.cs">
+    <Compile Include="Accueil.cs">
       <SubType>Form</SubType>
-      <Link>Accueil.cs</Link>
     </Compile>
-    <Compile Include="..\Accueil.Designer.cs">
+    <Compile Include="Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
-      <Link>Accueil.Designer.cs</Link>
     </Compile>
     <Compile Include="ExoTrou.cs">
       <SubType>Form</SubType>
@@ -68,9 +66,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\Accueil.resx">
+    <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
-      <Link>Accueil.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="ExoTrou.resx">
       <DependentUpon>ExoTrou.cs</DependentUpon>
