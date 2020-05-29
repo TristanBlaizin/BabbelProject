@@ -84,7 +84,7 @@ namespace BabbelProject
                 pcb.Left = 10;
                 pcb.Top = lbl.Height + 15;
                 pcb.Size = new Size(largeur-20,hauteur/2);
-                pcb.Image = Image.FromFile($"C:\\Users\\Shadow\\Desktop\\Samuel67000\\BabbelProject\\BabbelProject\\baseImages\\{InfosMots.ItemArray[3].ToString()}");
+                pcb.Image = Image.FromFile($"..\\..\\baseImages\\{InfosMots.ItemArray[3].ToString()}");
                 pcb.Name = $"pcb_{compteur}";
 
                 //Label traduc

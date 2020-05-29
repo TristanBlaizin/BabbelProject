@@ -15,6 +15,7 @@ namespace BabbelProject
         public DataRow InfosExo;
         public DataSet Babbel;
         public string phraseJuste;
+        public string correction;
         public List<string> phraseEnConstruction = new List<string>();
         int tmpPositionXSolution = 20;
         int tmpPositionySolution = 20;
@@ -47,6 +48,52 @@ namespace BabbelProject
                 }
             }
         }
+
+        public void InitLabelSolution(int nbrLbl, string[] phrase)
+        {
+            for(int i = 0; i < nbrLbl; i++)
+            {
+                Label lblSolution = new Label();
+                grpSolution.Controls.Add(lblSolution);
+                lblSolution.Name = $"lbl_{i}";
+                lblSolution.Text = phrase[i];
+                lblSolution.AutoSize = false;
+                lblSolution.Size = new Size(50,15);
+                lblSolution.Visible = true;
+                lblSolution.Location = new Point(tmpPositionXSolution, tmpPositionySolution);
+                lblSolution.Click += new System.EventHandler(lblSolution_Click);
+                tmpPositionXSolution += lblSolution.Width;
+            }
+
+            foreach(Control label in grpSolution.Controls)
+            {
+                label.Text = string.Empty;
+            }
+            
+        }
+
+        public void ModifPhraseConstruction()
+        {
+            phraseEnConstruction.Clear();
+            correction = string.Empty;
+            foreach(Control label in grpSolution.Controls)
+            {
+                phraseEnConstruction.Add(label.Text);
+            }
+            int i = 0;
+            foreach (string word in phraseEnConstruction)
+            {
+                if (phraseEnConstruction[i].Contains('.'))
+                {
+                    correction += phraseEnConstruction[i];
+                }
+                else
+                {
+                    correction += phraseEnConstruction[i] + " ";
+                }
+                i++;
+            }
+        }
         public ExoDesordre()
         {
             InitializeComponent();
@@ -64,44 +111,36 @@ namespace BabbelProject
             int codePhrase = (int)InfosExo.ItemArray[5];
             phraseJuste = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
             InitPhrase();
-            label2.Text = phraseJuste;
+            InitLabelSolution(phraseJuste.Split(' ').Length, phraseJuste.Split(' '));
         }
 
         private void ClickLbl(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            
-            phraseEnConstruction.Add(lbl.Text);
-            string correction = string.Empty;
-            int i = 0;
-            foreach(string word in phraseEnConstruction)
+            bool enCoursDeplacement = true;
+            int j = 0;
+           
+            while(j < grpSolution.Controls.Count && enCoursDeplacement)
             {
-                if(phraseEnConstruction[i].Contains('.'))
+                Label lblSoluce = (Label)grpSolution.Controls[j];
+                if (string.IsNullOrEmpty(lblSoluce.Text))
                 {
-                    correction += phraseEnConstruction[i];
+                    enCoursDeplacement = false;
+                    grpSolution.Controls[j].Text = lbl.Text;
+                   
                 }
-                else
-                {
-                    correction += phraseEnConstruction[i] + " ";
-                }
-                i++;
+                j++;
+            
             }
-            label1.Text = correction;
-            Label lblSolution = new Label();
-            grpSolution.Controls.Add(lblSolution);
-            lblSolution.Name = $"lbl_{lbl.Text}";
-            lblSolution.Text = lbl.Text;
-            lblSolution.AutoSize = true;
-            lblSolution.Visible = true;
-            lblSolution.Location = new Point(tmpPositionXSolution, tmpPositionySolution);
-            lblSolution.Click += new System.EventHandler(lblSolution_Click);
-            tmpPositionXSolution += lbl.Width;
-            lblSolution.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            
+            ModifPhraseConstruction();
+            
+
             lbl.Visible = false;
             lbl.Enabled = false;
 
 
-            if (label1.Text == phraseJuste)
+            if (correction == phraseJuste)
             {
                 MessageBox.Show("GG");
             }
@@ -110,6 +149,34 @@ namespace BabbelProject
         private void lblSolution_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
+            foreach (Control label in grpContainer.Controls)
+            {
+                if (label.Text == lbl.Text)
+                {
+                    label.Visible = true;
+                    label.Enabled = true;
+                    lbl.Text = string.Empty;
+                }
+            }
+            ModifPhraseConstruction();
+        }
+
+        private void btnSolution_Click(object sender, EventArgs e)
+        {
+            lblSolution.Text = phraseJuste;
+            lblNonValide.Visible = true;
+            foreach(Control label in grpContainer.Controls)
+            {
+                Label lbl = (Label)label;
+                lbl.Visible = true;
+                lbl.Enabled = false;
+            }
+            foreach (Control label in grpSolution.Controls)
+            {
+                Label lbl = (Label)label;
+                lbl.Visible = false;
+                lbl.Enabled = false;
+            }
 
         }
     }

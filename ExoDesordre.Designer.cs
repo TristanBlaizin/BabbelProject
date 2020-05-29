@@ -30,64 +30,79 @@
         {
             this.lblRegle = new System.Windows.Forms.Label();
             this.grpContainer = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.grpSolution = new System.Windows.Forms.GroupBox();
+            this.btnSolution = new System.Windows.Forms.Button();
+            this.lblSolution = new System.Windows.Forms.Label();
+            this.lblNonValide = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblRegle
             // 
             this.lblRegle.AutoSize = true;
-            this.lblRegle.Location = new System.Drawing.Point(381, 9);
+            this.lblRegle.Location = new System.Drawing.Point(374, 9);
             this.lblRegle.Name = "lblRegle";
-            this.lblRegle.Size = new System.Drawing.Size(41, 13);
+            this.lblRegle.Size = new System.Drawing.Size(35, 13);
             this.lblRegle.TabIndex = 1;
-            this.lblRegle.Text = "balbel2";
+            this.lblRegle.Text = "label2";
             // 
             // grpContainer
             // 
-            this.grpContainer.Location = new System.Drawing.Point(18, 349);
+            this.grpContainer.Location = new System.Drawing.Point(18, 309);
             this.grpContainer.Name = "grpContainer";
-            this.grpContainer.Size = new System.Drawing.Size(770, 89);
+            this.grpContainer.Size = new System.Drawing.Size(770, 129);
             this.grpContainer.TabIndex = 3;
             this.grpContainer.TabStop = false;
             this.grpContainer.Text = "Phrase dans le désordre";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
-            // 
             // grpSolution
             // 
-            this.grpSolution.Location = new System.Drawing.Point(18, 242);
+            this.grpSolution.Location = new System.Drawing.Point(18, 34);
             this.grpSolution.Name = "grpSolution";
             this.grpSolution.Size = new System.Drawing.Size(770, 101);
             this.grpSolution.TabIndex = 6;
             this.grpSolution.TabStop = false;
             this.grpSolution.Text = "Phrase en construction";
             // 
+            // btnSolution
+            // 
+            this.btnSolution.Location = new System.Drawing.Point(713, 280);
+            this.btnSolution.Name = "btnSolution";
+            this.btnSolution.Size = new System.Drawing.Size(75, 23);
+            this.btnSolution.TabIndex = 7;
+            this.btnSolution.Text = "Solution";
+            this.btnSolution.UseVisualStyleBackColor = true;
+            this.btnSolution.Click += new System.EventHandler(this.btnSolution_Click);
+            // 
+            // lblSolution
+            // 
+            this.lblSolution.AutoSize = true;
+            this.lblSolution.Location = new System.Drawing.Point(254, 211);
+            this.lblSolution.Name = "lblSolution";
+            this.lblSolution.Size = new System.Drawing.Size(35, 13);
+            this.lblSolution.TabIndex = 8;
+            this.lblSolution.Text = "label1";
+            this.lblSolution.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblNonValide
+            // 
+            this.lblNonValide.AutoSize = true;
+            this.lblNonValide.Location = new System.Drawing.Point(347, 239);
+            this.lblNonValide.Name = "lblNonValide";
+            this.lblNonValide.Size = new System.Drawing.Size(109, 13);
+            this.lblNonValide.TabIndex = 10;
+            this.lblNonValide.Text = "Excercice Non Validé";
+            this.lblNonValide.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNonValide.Visible = false;
+            // 
             // ExoDesordre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblNonValide);
+            this.Controls.Add(this.lblSolution);
+            this.Controls.Add(this.btnSolution);
             this.Controls.Add(this.grpSolution);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpContainer);
             this.Controls.Add(this.lblRegle);
             this.Name = "ExoDesordre";
@@ -101,8 +116,9 @@
         #endregion
         private System.Windows.Forms.Label lblRegle;
         private System.Windows.Forms.GroupBox grpContainer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grpSolution;
+        private System.Windows.Forms.Button btnSolution;
+        private System.Windows.Forms.Label lblSolution;
+        private System.Windows.Forms.Label lblNonValide;
     }
 }
