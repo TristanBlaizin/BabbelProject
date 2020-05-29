@@ -21,7 +21,7 @@ namespace BabbelProject
             string[] tblphrase = phrase.Split(' ').OrderBy(word => rnd.Next()).ToArray();
             int x = grpContainer.Location.X + 10;
             int y = (grpContainer.Location.Y - grpContainer.Size.Height) + 30;
-            for (int i = 0; i < phrase.Length; i++)
+            for (int i = 0; i < tblphrase.Length; i++)
             {
 
                 Label lbl = new Label();

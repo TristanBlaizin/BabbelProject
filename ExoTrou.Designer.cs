@@ -32,19 +32,21 @@
             this.lblTrouConsigne = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.grbTrou = new System.Windows.Forms.GroupBox();
+            this.btnTrouValider = new System.Windows.Forms.Button();
+            this.btnTrouTerminer = new System.Windows.Forms.Button();
+            this.btnAide = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTrouConsigne
             // 
             this.lblTrouConsigne.AutoSize = true;
             this.lblTrouConsigne.BackColor = System.Drawing.Color.Transparent;
-            this.lblTrouConsigne.Font = new System.Drawing.Font("Georgia", 14.25F);
+            this.lblTrouConsigne.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrouConsigne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
-            this.lblTrouConsigne.Location = new System.Drawing.Point(35, 165);
-            this.lblTrouConsigne.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTrouConsigne.Location = new System.Drawing.Point(23, 107);
             this.lblTrouConsigne.Name = "lblTrouConsigne";
-            this.lblTrouConsigne.Size = new System.Drawing.Size(95, 23);
+            this.lblTrouConsigne.Size = new System.Drawing.Size(118, 25);
             this.lblTrouConsigne.TabIndex = 0;
             this.lblTrouConsigne.Text = "exo a trou";
             // 
@@ -54,8 +56,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
-            this.label6.Location = new System.Drawing.Point(322, 74);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(215, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(368, 43);
             this.label6.TabIndex = 7;
@@ -64,32 +65,77 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(584, 332);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.label1.Location = new System.Drawing.Point(24, 155);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(59, 23);
             this.label1.TabIndex = 8;
             this.label1.Text = "label1";
             // 
-            // label2
+            // grbTrou
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(852, 212);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.grbTrou.BackColor = System.Drawing.Color.Transparent;
+            this.grbTrou.Location = new System.Drawing.Point(27, 181);
+            this.grbTrou.Name = "grbTrou";
+            this.grbTrou.Size = new System.Drawing.Size(731, 125);
+            this.grbTrou.TabIndex = 11;
+            this.grbTrou.TabStop = false;
+            // 
+            // btnTrouValider
+            // 
+            this.btnTrouValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnTrouValider.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTrouValider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnTrouValider.Location = new System.Drawing.Point(640, 312);
+            this.btnTrouValider.Name = "btnTrouValider";
+            this.btnTrouValider.Size = new System.Drawing.Size(118, 39);
+            this.btnTrouValider.TabIndex = 13;
+            this.btnTrouValider.Text = "Valider";
+            this.btnTrouValider.UseVisualStyleBackColor = false;
+            this.btnTrouValider.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnTrouTerminer
+            // 
+            this.btnTrouTerminer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnTrouTerminer.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTrouTerminer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnTrouTerminer.Location = new System.Drawing.Point(670, 399);
+            this.btnTrouTerminer.Name = "btnTrouTerminer";
+            this.btnTrouTerminer.Size = new System.Drawing.Size(118, 39);
+            this.btnTrouTerminer.TabIndex = 14;
+            this.btnTrouTerminer.Text = "Terminer";
+            this.btnTrouTerminer.UseVisualStyleBackColor = false;
+            // 
+            // btnAide
+            // 
+            this.btnAide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAide.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnAide.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAide.Location = new System.Drawing.Point(521, 312);
+            this.btnAide.Name = "btnAide";
+            this.btnAide.Size = new System.Drawing.Size(113, 39);
+            this.btnAide.TabIndex = 15;
+            this.btnAide.Text = "Solution";
+            this.btnAide.UseVisualStyleBackColor = false;
+            this.btnAide.Click += new System.EventHandler(this.btnAide_Click);
             // 
             // ExoTrou
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAide);
+            this.Controls.Add(this.btnTrouTerminer);
+            this.Controls.Add(this.btnTrouValider);
+            this.Controls.Add(this.grbTrou);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTrouConsigne);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ExoTrou";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ExoTrou_Load);
@@ -103,6 +149,9 @@
         private System.Windows.Forms.Label lblTrouConsigne;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox grbTrou;
+        private System.Windows.Forms.Button btnTrouValider;
+        private System.Windows.Forms.Button btnTrouTerminer;
+        private System.Windows.Forms.Button btnAide;
     }
 }
