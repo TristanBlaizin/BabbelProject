@@ -21,15 +21,13 @@ namespace BabbelProject
         public void InitPhrase()
         {
             Random rnd = new Random();
-<<<<<<< HEAD
-            string[] tblphrase = phrase.Split(' ').OrderBy(word => rnd.Next()).ToArray();
-            int x = grpContainer.Location.X + 10;
-            int y = (grpContainer.Location.Y - grpContainer.Size.Height) + 30;
-=======
+
             string[] tblphrase = phraseJuste.Split(' ').OrderBy(word => rnd.Next()).ToArray();
-            int x = 30;
-            int y = 30;
->>>>>>> 2caa05effbf5e3936b5cf41b87da21b063c7e1b1
+            int x =  30;
+            int y =  30;
+
+
+
             for (int i = 0; i < tblphrase.Length; i++)
             {
 
