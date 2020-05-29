@@ -66,47 +66,14 @@ namespace BabbelProject
             }  
         }
 
-        public void TestExoList()
-        {
-            string utilisateur = cbxUtilisateur.SelectedItem.ToString();
-            string prenom = utilisateur.Split(' ')[0];
-            DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
-            string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
-            DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
-            DataRow[] InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0].ToString()}'");
-            string str = string.Empty;
-            string str2 = string.Empty;
-            foreach (DataRow row in InfosExo)
-            {
-                foreach (object obj in row.ItemArray)
-                {
-                    str += $"{obj.ToString()} ";
-                }
-                str += "\n";
-                if ((int)(row.ItemArray[5]) == 0)
-                {
-                    str2 += "Vocabulaire ou Grammaire";
-                }
-                else if ((bool)(row.ItemArray[6]))
-                {
-                    str2 += "Desordre";
-                }
-                else
-                {
-                    str2 += "Texte à trou";
-                }
-                str2 += "\n";
-            }
-            label4.Text = str;
-            label5.Text = str2;
-        }
+       
 
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb ";
+            ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\baseLangue.mdb";
             // C:\BDD\baseLangue.mdb
-            //C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb
+            //C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\baseLangue.mdb
             connec = new OleDbConnection();
             connec.ConnectionString = ch_connect;
             InitDeconnecte();
@@ -153,10 +120,10 @@ namespace BabbelProject
             DataRow[] InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0].ToString()}'");
             string str = string.Empty;
             string str2 = string.Empty;
-            TestExoList();
             if ((int)(InfosExo[0].ItemArray[5]) == 0)
             {
-                MessageBox.Show("VocOu grammaire");
+                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExo[0], Babbel);
+                LeconVocabulaire.ShowDialog();
 
             }
             else if ((bool)(InfosExo[0].ItemArray[6]))
@@ -178,9 +145,9 @@ namespace BabbelProject
             e.Handled = true;
         }
 
-        int largeur= 0;
-        int hauteur = 0; 
-        private void testdrap_Click(object sender, EventArgs e)
+        //int largeur= 0;
+        //int hauteur = 0; 
+        /*private void testdrap_Click(object sender, EventArgs e)
         {
             int exoTerm = 8; //Modifier la source après  que un exo soit fini 
             hauteur +=195;
@@ -202,6 +169,6 @@ namespace BabbelProject
             {
                 largeur = exoTerm * (140 / NbExo);
             }
-        }
+        }*/
     }
 }

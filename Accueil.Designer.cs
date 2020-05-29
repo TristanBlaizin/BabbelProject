@@ -46,11 +46,7 @@
             this.lblTitleCours = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.testdrap = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -254,24 +250,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(400, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -284,25 +262,6 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "La Casa de Babbel";
             // 
-            // testdrap
-            // 
-            this.testdrap.Location = new System.Drawing.Point(681, 84);
-            this.testdrap.Name = "testdrap";
-            this.testdrap.Size = new System.Drawing.Size(75, 23);
-            this.testdrap.TabIndex = 7;
-            this.testdrap.Text = "button1";
-            this.testdrap.UseVisualStyleBackColor = true;
-            this.testdrap.Click += new System.EventHandler(this.testdrap_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(712, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "modification";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,11 +269,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(121)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.testdrap);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Name = "Accueil";
             this.Text = "Accueil";
@@ -339,8 +294,6 @@
         private System.Windows.Forms.Label lblCommentLesson;
         private System.Windows.Forms.Label lblExo;
         private System.Windows.Forms.Button btnExo;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblPresentation3;
@@ -349,8 +302,6 @@
         private System.Windows.Forms.Label lblPresentation5;
         private System.Windows.Forms.Label lblPresentation4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button testdrap;
-        private System.Windows.Forms.Button button1;
     }
 }
 

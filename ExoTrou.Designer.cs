@@ -106,7 +106,7 @@
             this.btnTrouTerminer.Name = "btnTrouTerminer";
             this.btnTrouTerminer.Size = new System.Drawing.Size(118, 39);
             this.btnTrouTerminer.TabIndex = 14;
-            this.btnTrouTerminer.Text = "Terminer";
+            this.btnTrouTerminer.Text = "Suivant";
             this.btnTrouTerminer.UseVisualStyleBackColor = false;
             // 
             // btnAide

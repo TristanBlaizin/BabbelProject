@@ -64,6 +64,12 @@
     <Compile Include="ExoDesordre.Designer.cs">
       <DependentUpon>ExoDesordre.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeconVocabulaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LeconVocabulaire.Designer.cs">
+      <DependentUpon>LeconVocabulaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Accueil.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExoTrou.resx">
       <DependentUpon>ExoTrou.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeconVocabulaire.resx">
+      <DependentUpon>LeconVocabulaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

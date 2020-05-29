@@ -44,3 +44,4 @@ C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.csproj.CoreCo
 C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.exe
 C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.pdb
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\obj\Debug\BabbelProject.ExoDesordre.resources
+C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\BabbelProject\obj\Debug\BabbelProject.LeconVocabulaire.resources
