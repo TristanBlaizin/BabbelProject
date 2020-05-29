@@ -112,10 +112,7 @@ namespace BabbelProject
             phraseJuste = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
             InitPhrase();
             InitLabelSolution(phraseJuste.Split(' ').Length, phraseJuste.Split(' '));
-<<<<<<< HEAD
-=======
-            label2.Text = phraseJuste;
->>>>>>> 537f684e76b23dea031d4a779ccce618533aca5a
+
         }
 
         private void ClickLbl(object sender, EventArgs e)
