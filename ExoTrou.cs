@@ -44,8 +44,6 @@ namespace BabbelProject
             string[] tabMotsPhraseATrou = new string[tabMot.Length];
             int positionHorizon = 24;
             int positionVetical = 0;
-            int caractereMots = 0;
-
             for (int i = 0; i < tabMot.Length; ++i)
             {
                 for (int y = 0;y < tabMotPerdu.Length; y++)
