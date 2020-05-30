@@ -161,6 +161,7 @@
             // btnExo
             // 
             this.btnExo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnExo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
             this.btnExo.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExo.Location = new System.Drawing.Point(518, 268);

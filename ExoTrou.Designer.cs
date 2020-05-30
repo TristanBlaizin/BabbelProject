@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExoTrou));
             this.lblTrouConsigne = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblLaCasaDeBabbelTrou = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grbTrou = new System.Windows.Forms.GroupBox();
             this.btnTrouValider = new System.Windows.Forms.Button();
-            this.btnTrouTerminer = new System.Windows.Forms.Button();
+            this.btnTrouSuivant = new System.Windows.Forms.Button();
             this.btnAide = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -50,17 +50,17 @@
             this.lblTrouConsigne.TabIndex = 0;
             this.lblTrouConsigne.Text = "exo a trou";
             // 
-            // label6
+            // lblLaCasaDeBabbelTrou
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
-            this.label6.Location = new System.Drawing.Point(215, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(368, 43);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "La Casa de Babbel";
+            this.lblLaCasaDeBabbelTrou.AutoSize = true;
+            this.lblLaCasaDeBabbelTrou.BackColor = System.Drawing.Color.Transparent;
+            this.lblLaCasaDeBabbelTrou.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaCasaDeBabbelTrou.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
+            this.lblLaCasaDeBabbelTrou.Location = new System.Drawing.Point(20, 36);
+            this.lblLaCasaDeBabbelTrou.Name = "lblLaCasaDeBabbelTrou";
+            this.lblLaCasaDeBabbelTrou.Size = new System.Drawing.Size(368, 43);
+            this.lblLaCasaDeBabbelTrou.TabIndex = 7;
+            this.lblLaCasaDeBabbelTrou.Text = "La Casa de Babbel";
             // 
             // label1
             // 
@@ -87,6 +87,7 @@
             // btnTrouValider
             // 
             this.btnTrouValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnTrouValider.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTrouValider.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnTrouValider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
             this.btnTrouValider.Location = new System.Drawing.Point(640, 312);
@@ -97,21 +98,23 @@
             this.btnTrouValider.UseVisualStyleBackColor = false;
             this.btnTrouValider.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnTrouTerminer
+            // btnTrouSuivant
             // 
-            this.btnTrouTerminer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
-            this.btnTrouTerminer.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTrouTerminer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
-            this.btnTrouTerminer.Location = new System.Drawing.Point(670, 399);
-            this.btnTrouTerminer.Name = "btnTrouTerminer";
-            this.btnTrouTerminer.Size = new System.Drawing.Size(118, 39);
-            this.btnTrouTerminer.TabIndex = 14;
-            this.btnTrouTerminer.Text = "Suivant";
-            this.btnTrouTerminer.UseVisualStyleBackColor = false;
+            this.btnTrouSuivant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnTrouSuivant.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTrouSuivant.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTrouSuivant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnTrouSuivant.Location = new System.Drawing.Point(670, 399);
+            this.btnTrouSuivant.Name = "btnTrouSuivant";
+            this.btnTrouSuivant.Size = new System.Drawing.Size(118, 39);
+            this.btnTrouSuivant.TabIndex = 14;
+            this.btnTrouSuivant.Text = "Suivant";
+            this.btnTrouSuivant.UseVisualStyleBackColor = false;
             // 
             // btnAide
             // 
             this.btnAide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAide.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnAide.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
             this.btnAide.Location = new System.Drawing.Point(521, 312);
@@ -130,11 +133,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnAide);
-            this.Controls.Add(this.btnTrouTerminer);
+            this.Controls.Add(this.btnTrouSuivant);
             this.Controls.Add(this.btnTrouValider);
             this.Controls.Add(this.grbTrou);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblLaCasaDeBabbelTrou);
             this.Controls.Add(this.lblTrouConsigne);
             this.Name = "ExoTrou";
             this.Text = "Form1";
@@ -147,11 +150,11 @@
         #endregion
 
         private System.Windows.Forms.Label lblTrouConsigne;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblLaCasaDeBabbelTrou;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grbTrou;
         private System.Windows.Forms.Button btnTrouValider;
-        private System.Windows.Forms.Button btnTrouTerminer;
+        private System.Windows.Forms.Button btnTrouSuivant;
         private System.Windows.Forms.Button btnAide;
     }
 }
