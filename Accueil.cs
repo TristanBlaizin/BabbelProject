@@ -72,13 +72,12 @@ namespace BabbelProject
         private void Form1_Load(object sender, EventArgs e)
         {
             ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = ..\..\baseLangue.mdb";
-<<<<<<< HEAD
+
            
            // ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\BDD\baseLangue.mdb";
             // C:\BDD\baseLangue.mdb
             //C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb
-=======
->>>>>>> c8a1d6958e8f3fcc2f1f63a533f786621a8bc606
+
             connec = new OleDbConnection();
             connec.ConnectionString = ch_connect;
             InitDeconnecte();

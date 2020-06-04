@@ -119,15 +119,14 @@ namespace BabbelProject
             phraseJuste = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
             InitPhrase();
             InitLabelSolution(phraseJuste.Split(' ').Length, phraseJuste.Split(' '));
-<<<<<<< HEAD
             lblDesordreEtatExo.Text = "Cet exercice est en cours.";
             lblDesordreEtatExo.Font = new Font(lblDesordreEtatExo.Font, FontStyle.Bold);
-=======
+
 
         }
->>>>>>> c8a1d6958e8f3fcc2f1f63a533f786621a8bc606
 
-        }
+
+        
         private void ClickLbl(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
