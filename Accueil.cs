@@ -63,32 +63,24 @@ namespace BabbelProject
             finally
             {
                 connec.Close();
-            }  
+            }
         }
 
-       
-
-        
         private void Form1_Load(object sender, EventArgs e)
         {
             ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = ..\..\baseLangue.mdb";
-
-           
-           // ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\BDD\baseLangue.mdb";
-            // C:\BDD\baseLangue.mdb
-            //C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\baseLangue.mdb
 
             connec = new OleDbConnection();
             connec.ConnectionString = ch_connect;
             InitDeconnecte();
 
             DataRowCollection rowArray = Babbel.Tables["Utilisateurs"].Rows;
-            foreach(DataRow row in rowArray)
+            foreach (DataRow row in rowArray)
             {
                 string prenom = row.ItemArray[2].ToString();
                 string nom = row.ItemArray[1].ToString();
                 cbxUtilisateur.Items.Add($"{prenom} {nom}");
-            }        
+            }
         }
 
         private void CbxUtilisateur_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,7 +101,7 @@ namespace BabbelProject
             lblCours.Text = InfosCours.ItemArray[1].ToString();
             lblLesson.Text = InfosLecons.ItemArray[2].ToString();
             lblCommentLesson.Text = InfosLecons.ItemArray[3].ToString();
-            lblExo.Text = $"Exercices terminés: 0/{NbExo.ToString()}";
+            lblExo.Text = $"Exercices terminés: {InfosUtilisateur.ItemArray[4]}/{NbExo.ToString()}";
             pictureBox2.Visible = true;
 
         }
@@ -122,26 +114,24 @@ namespace BabbelProject
             string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
             DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
             DataRow[] InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0].ToString()}'");
-            string str = string.Empty;
-            string str2 = string.Empty;
             if ((int)(InfosExo[0].ItemArray[5]) == 0)
             {
-                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExo[0], Babbel);
+                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExo[0], Babbel,utilisateur);
                 LeconVocabulaire.ShowDialog();
 
             }
             else if ((bool)(InfosExo[0].ItemArray[6]))
             {
-                ExoDesordre ExoDesordre = new ExoDesordre(InfosExo[0], Babbel);
+                ExoDesordre ExoDesordre = new ExoDesordre(InfosExo[0], Babbel, utilisateur);
                 ExoDesordre.ShowDialog();
             }
             else
             {
-                ExoTrou ExoATrou = new ExoTrou(InfosExo[0], Babbel);
+                ExoTrou ExoATrou = new ExoTrou(InfosExo[0], Babbel, utilisateur);
                 ExoATrou.ShowDialog();
             }
 
-
+            DialogResult = DialogResult.OK;
         }
 
         private void cbxUtilisateur_KeyPress(object sender, KeyPressEventArgs e)

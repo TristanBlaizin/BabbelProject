@@ -58,6 +58,7 @@
             this.btnTrouTerminer.TabIndex = 15;
             this.btnTrouTerminer.Text = "Suivant";
             this.btnTrouTerminer.UseVisualStyleBackColor = false;
+            this.btnTrouTerminer.Click += new System.EventHandler(this.btnTrouTerminer_Click);
             // 
             // pnl
             // 
@@ -66,6 +67,7 @@
             this.pnl.Name = "pnl";
             this.pnl.Size = new System.Drawing.Size(776, 280);
             this.pnl.TabIndex = 16;
+            this.pnl.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Paint);
             // 
             // lblTrouConsigne
             // 

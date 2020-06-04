@@ -142,6 +142,7 @@
             this.btnDesordreSuivant.TabIndex = 16;
             this.btnDesordreSuivant.Text = "Suivant";
             this.btnDesordreSuivant.UseVisualStyleBackColor = false;
+            this.btnDesordreSuivant.Click += new System.EventHandler(this.btnDesordreSuivant_Click);
             // 
             // lblDesordreEtatExo
             // 

@@ -58,3 +58,4 @@ C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\obj\Debug\BabbelProject.pdb
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\bin\Debug\BabbelProject.exe.config
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\bin\Debug\BabbelProject.exe
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\bin\Debug\BabbelProject.pdb
+C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.LeconVocabulaire.resources

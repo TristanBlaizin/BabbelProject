@@ -16,15 +16,17 @@ namespace BabbelProject
     {
         public DataRow InfosExo;
         public DataSet Babbel;
+        public string utilisateur;
         public LeconVocabulaire()
         {
             InitializeComponent();
         }
-        public LeconVocabulaire(DataRow InfosExo, DataSet BDD)
+        public LeconVocabulaire(DataRow InfosExo, DataSet BDD, string utilisateur)
         {
             InitializeComponent();
             this.InfosExo = InfosExo;
             this.Babbel = BDD;
+            this.utilisateur = utilisateur;
         }
 
         private void LeconVocabulaire_Load(object sender, EventArgs e)
@@ -84,7 +86,10 @@ namespace BabbelProject
                 pcb.Left = 10;
                 pcb.Top = lbl.Height + 15;
                 pcb.Size = new Size(largeur-20,hauteur/2);
-                pcb.Image = Image.FromFile($"..\\..\\baseImages\\{InfosMots.ItemArray[3].ToString()}");
+                if (!string.IsNullOrEmpty(InfosMots.ItemArray[3].ToString()))
+                {
+                    pcb.Image = Image.FromFile($"..\\..\\baseImages\\{InfosMots.ItemArray[3].ToString()}");
+                }
                 pcb.Name = $"pcb_{compteur}";
 
                 //Label traduc
@@ -121,6 +126,46 @@ namespace BabbelProject
 
                 compteur += 1;
             }
+
+        }
+
+        private void btnTrouTerminer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+                if (InfosExoSuivant.Length != 0)
+                {
+                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
+                    {
+                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                        LeconVocabulaire.Show();
+
+                    }
+                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                    {
+                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoDesordre.Show();
+                    }
+                    else
+                    {
+                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoATrou.Show();
+                    }
+                }
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+        }
+
+        private void pnl_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

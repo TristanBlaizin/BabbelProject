@@ -110,6 +110,7 @@
             this.btnTrouSuivant.TabIndex = 14;
             this.btnTrouSuivant.Text = "Suivant";
             this.btnTrouSuivant.UseVisualStyleBackColor = false;
+            this.btnTrouSuivant.Click += new System.EventHandler(this.btnTrouSuivant_Click);
             // 
             // btnAide
             // 

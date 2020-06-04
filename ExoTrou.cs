@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,16 +16,18 @@ namespace BabbelProject
 
         public DataRow InfosExo;
         public DataSet Babbel;
+        public string utilisateur;
         public ExoTrou()
         {
             InitializeComponent();
         }
 
-        public ExoTrou(DataRow InfosExo, DataSet BDD)
+        public ExoTrou(DataRow InfosExo, DataSet BDD, string utilisateur)
         {
             InitializeComponent();
             this.InfosExo = InfosExo;
             this.Babbel = BDD;
+            this.utilisateur = utilisateur;
         }
         private void ExoTrou_Load(object sender, EventArgs e)
         {
@@ -142,6 +145,40 @@ namespace BabbelProject
             }
             btnTrouValider.Enabled = false;
             btnTrouValider.Visible = false;
+
+        }
+
+        private void btnTrouSuivant_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+                if (InfosExoSuivant.Length != 0)
+                {
+                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
+                    {
+                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                        LeconVocabulaire.Show();
+
+                    }
+                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                    {
+                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoDesordre.Show();
+                    }
+                    else
+                    {
+                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoATrou.Show();
+                    }
+                }
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
     }

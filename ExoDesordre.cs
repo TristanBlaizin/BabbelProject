@@ -17,11 +17,12 @@ namespace BabbelProject
     {
         public DataRow InfosExo;
         public DataSet Babbel;
+        public string utilisateur;
+
         public string phraseJuste;
         public string correction;
         public List<string> phraseEnConstruction = new List<string>();
         int tmpPositionXSolution = 20;
-        int tmpPositionySolution = 20;
         public void InitPhrase()
         {
             Random rnd = new Random();
@@ -46,11 +47,11 @@ namespace BabbelProject
                 lbl.Font = new Font("Georgia", 11);
                 lbl.Click += new System.EventHandler(ClickLbl);
                 x += lbl.Width + 10;
-                /*if (x > (grpContainer.Location.X + grpContainer.Size.Width))
+                if (x > (grpContainer.Location.X + grpContainer.Size.Width))
                 {
                     x = grpContainer.Location.X;
-                    y += 30;}
-               */ 
+                    y += 30;
+                }
             }
         }
 
@@ -106,11 +107,12 @@ namespace BabbelProject
             InitializeComponent();
         }
 
-        public ExoDesordre(DataRow InfosExo, DataSet BDD)
+        public ExoDesordre(DataRow InfosExo, DataSet BDD, string utilisateur)
         {
             InitializeComponent();
             this.InfosExo = InfosExo;
             this.Babbel = BDD;
+            this.utilisateur = utilisateur;
         }
         private void ExoDesordre_Load(object sender, EventArgs e)
         {
@@ -271,6 +273,40 @@ namespace BabbelProject
             messageAttention.AutoPopDelay = 10000;
             messageAttention.SetToolTip(btnSolution, "Attention : si vous appuyez, l'exercice sera à recommencer.");
             
+        }
+
+        private void btnDesordreSuivant_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+                if (InfosExoSuivant.Length != 0)
+                {
+                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
+                    {
+                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                        LeconVocabulaire.Show();
+
+                    }
+                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                    {
+                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoDesordre.Show();
+                    }
+                    else
+                    {
+                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoATrou.Show();
+                    }
+                }
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }
