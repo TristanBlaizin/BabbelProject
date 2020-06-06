@@ -32,12 +32,12 @@
             this.grpContainer = new System.Windows.Forms.GroupBox();
             this.grpSolution = new System.Windows.Forms.GroupBox();
             this.btnSolution = new System.Windows.Forms.Button();
-            this.lblNonValide = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnDesordreValider = new System.Windows.Forms.Button();
             this.lblDesordreConsigne = new System.Windows.Forms.Label();
             this.btnDesordreSuivant = new System.Windows.Forms.Button();
             this.lblDesordreEtatExo = new System.Windows.Forms.Label();
+            this.lblTraduc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // grpContainer
@@ -78,19 +78,6 @@
             this.btnSolution.UseVisualStyleBackColor = false;
             this.btnSolution.Click += new System.EventHandler(this.btnSolution_Click);
             this.btnSolution.MouseHover += new System.EventHandler(this.btnSolution_MouseHover);
-            // 
-            // lblNonValide
-            // 
-            this.lblNonValide.AutoSize = true;
-            this.lblNonValide.BackColor = System.Drawing.Color.Transparent;
-            this.lblNonValide.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNonValide.Location = new System.Drawing.Point(635, 25);
-            this.lblNonValide.Name = "lblNonValide";
-            this.lblNonValide.Size = new System.Drawing.Size(111, 15);
-            this.lblNonValide.TabIndex = 10;
-            this.lblNonValide.Text = "Excercice Non Validé";
-            this.lblNonValide.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNonValide.Visible = false;
             // 
             // label6
             // 
@@ -156,18 +143,31 @@
             this.lblDesordreEtatExo.TabIndex = 17;
             this.lblDesordreEtatExo.Text = "exo desordre";
             // 
+            // lblTraduc
+            // 
+            this.lblTraduc.AutoSize = true;
+            this.lblTraduc.BackColor = System.Drawing.Color.Transparent;
+            this.lblTraduc.Font = new System.Drawing.Font("Georgia", 14.2F, System.Drawing.FontStyle.Italic);
+            this.lblTraduc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.lblTraduc.Location = new System.Drawing.Point(142, 340);
+            this.lblTraduc.Name = "lblTraduc";
+            this.lblTraduc.Size = new System.Drawing.Size(102, 23);
+            this.lblTraduc.TabIndex = 18;
+            this.lblTraduc.Text = "traduction";
+            this.lblTraduc.UseWaitCursor = true;
+            // 
             // ExoDesordre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblTraduc);
             this.Controls.Add(this.lblDesordreEtatExo);
             this.Controls.Add(this.btnDesordreSuivant);
             this.Controls.Add(this.lblDesordreConsigne);
             this.Controls.Add(this.btnDesordreValider);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblNonValide);
             this.Controls.Add(this.btnSolution);
             this.Controls.Add(this.grpSolution);
             this.Controls.Add(this.grpContainer);
@@ -183,11 +183,11 @@
         private System.Windows.Forms.GroupBox grpContainer;
         private System.Windows.Forms.GroupBox grpSolution;
         private System.Windows.Forms.Button btnSolution;
-        private System.Windows.Forms.Label lblNonValide;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnDesordreValider;
         private System.Windows.Forms.Label lblDesordreConsigne;
         private System.Windows.Forms.Button btnDesordreSuivant;
         private System.Windows.Forms.Label lblDesordreEtatExo;
+        private System.Windows.Forms.Label lblTraduc;
     }
 }

@@ -59,3 +59,5 @@ C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\bin\Debug\BabbelProject.exe.co
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\bin\Debug\BabbelProject.exe
 C:\Users\Shadow\Desktop\Samuel67000\BabbelProject\bin\Debug\BabbelProject.pdb
 C:\Users\thesa\Documents\GIT\BabbelProject\obj\Debug\BabbelProject.LeconVocabulaire.resources
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.ExoDesordre.resources
+C:\Users\Admin\GIT\BabbelProject\obj\Debug\BabbelProject.LeconVocabulaire.resources

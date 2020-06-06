@@ -47,12 +47,14 @@ namespace BabbelProject
             string[] tabMotsPhraseATrou = new string[tabMot.Length];
             int positionHorizon = 24;
             int positionVetical = 0;
+            bool placementtxt = false;
             for (int i = 0; i < tabMot.Length; ++i)
             {
-                for (int y = 0;y < tabMotPerdu.Length; y++)
+                foreach(string str1 in tabMotPerdu)
                 {
-                    if ( i == Int64.Parse(tabMotPerdu[y])-1)
+                    if(i == int.Parse(str1)-1 && !placementtxt)
                     {
+                        placementtxt = true;
                         positionVetical = 53;
                         TextBox txt = new TextBox();
                         grbTrou.Controls.Add(txt);
@@ -61,9 +63,11 @@ namespace BabbelProject
                         txt.Top = positionVetical;
                         positionHorizon += txt.Width + 5;
                         txt.Font = new Font("Georgia", 14);
-                        txt.Name = $"txt_{y}";
-                    }   
-                    else {
+                        txt.Name = $"txt_{i}";
+                    }
+                    else if(!placementtxt)
+                    {
+                        placementtxt = true;
                         positionVetical = 55;
                         Label lbl = new Label();
                         grbTrou.Controls.Add(lbl);
@@ -71,16 +75,17 @@ namespace BabbelProject
                         lbl.Visible = true;
                         lbl.Left = positionHorizon;
                         lbl.Top = positionVetical;
-                        lbl.Text += tabMot[i] +" ";
+                        lbl.Text += tabMot[i] + " ";
                         lbl.Font = new Font("Georgia", 14);
                         lbl.ForeColor = Color.FromArgb(247, 215, 148);
                         lbl.Name = $"lbl_{i}";
                         positionHorizon += lbl.Width;
                     }
                 }
+                placementtxt = false;        
             }
             
-            label1.Text = reponse;
+            lblTraduc.Text = reponse;
             foreach (Control c in grbTrou.Controls)
             {
                 if ( c is TextBox)

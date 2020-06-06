@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExoTrou));
             this.lblTrouConsigne = new System.Windows.Forms.Label();
             this.lblLaCasaDeBabbelTrou = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTraduc = new System.Windows.Forms.Label();
             this.grbTrou = new System.Windows.Forms.GroupBox();
             this.btnTrouValider = new System.Windows.Forms.Button();
             this.btnTrouSuivant = new System.Windows.Forms.Button();
             this.btnAide = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblTrouConsigne
@@ -62,18 +63,18 @@
             this.lblLaCasaDeBabbelTrou.TabIndex = 7;
             this.lblLaCasaDeBabbelTrou.Text = "La Casa de Babbel";
             // 
-            // label1
+            // lblTraduc
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
-            this.label1.Location = new System.Drawing.Point(24, 155);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 23);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.lblTraduc.AutoSize = true;
+            this.lblTraduc.BackColor = System.Drawing.Color.Transparent;
+            this.lblTraduc.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTraduc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.lblTraduc.Location = new System.Drawing.Point(24, 155);
+            this.lblTraduc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTraduc.Name = "lblTraduc";
+            this.lblTraduc.Size = new System.Drawing.Size(59, 23);
+            this.lblTraduc.TabIndex = 8;
+            this.lblTraduc.Text = "label1";
             // 
             // grbTrou
             // 
@@ -126,6 +127,16 @@
             this.btnAide.UseVisualStyleBackColor = false;
             this.btnAide.Click += new System.EventHandler(this.btnAide_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(557, 51);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel1.TabIndex = 16;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "linkLabel1";
+            // 
             // ExoTrou
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,11 +144,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnAide);
             this.Controls.Add(this.btnTrouSuivant);
             this.Controls.Add(this.btnTrouValider);
             this.Controls.Add(this.grbTrou);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTraduc);
             this.Controls.Add(this.lblLaCasaDeBabbelTrou);
             this.Controls.Add(this.lblTrouConsigne);
             this.Name = "ExoTrou";
@@ -152,10 +164,11 @@
 
         private System.Windows.Forms.Label lblTrouConsigne;
         private System.Windows.Forms.Label lblLaCasaDeBabbelTrou;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTraduc;
         private System.Windows.Forms.GroupBox grbTrou;
         private System.Windows.Forms.Button btnTrouValider;
         private System.Windows.Forms.Button btnTrouSuivant;
         private System.Windows.Forms.Button btnAide;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

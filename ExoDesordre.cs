@@ -22,7 +22,8 @@ namespace BabbelProject
         public string phraseJuste;
         public string correction;
         public List<string> phraseEnConstruction = new List<string>();
-        int tmpPositionXSolution = 20;
+        int tmpPositionXSolution = 10;
+        int tmpPositionYSolution = 25;
         public void InitPhrase()
         {
             Random rnd = new Random();
@@ -67,10 +68,15 @@ namespace BabbelProject
                 lblSolution.Size = new Size(75,15);
                 lblSolution.Visible = true;
                 lblSolution.Font = new Font("Georgia", 12);
-                lblSolution.Location = new Point(tmpPositionXSolution, 45);
+                lblSolution.Location = new Point(tmpPositionXSolution, tmpPositionYSolution);
                 lblSolution.Font = new Font(lblSolution.Font,FontStyle.Bold);
                 lblSolution.Click += new System.EventHandler(lblSolution_Click);
                 tmpPositionXSolution += 75;
+                if(tmpPositionXSolution > grpSolution.Width - 30)
+                {
+                    tmpPositionXSolution = 10;
+                    tmpPositionYSolution += 15;
+                }
             }
 
             foreach(Control label in grpSolution.Controls)
@@ -91,7 +97,7 @@ namespace BabbelProject
             int i = 0;
             foreach (string word in phraseEnConstruction)
             {
-                if (phraseEnConstruction[i].Contains('.'))
+                if (phraseEnConstruction[i].Contains('.') || phraseEnConstruction[i].Contains('?') || phraseEnConstruction[i].Contains('!'))
                 {
                     correction += phraseEnConstruction[i];
                 }
@@ -101,6 +107,7 @@ namespace BabbelProject
                 }
                 i++;
             }
+            label1.Text = correction;
         }
         public ExoDesordre()
         {
@@ -119,11 +126,13 @@ namespace BabbelProject
             lblDesordreConsigne.Text = InfosExo.ItemArray[3].ToString();
             int codePhrase = (int)InfosExo.ItemArray[5];
             phraseJuste = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
+
             InitPhrase();
             InitLabelSolution(phraseJuste.Split(' ').Length, phraseJuste.Split(' '));
             lblDesordreEtatExo.Text = "Cet exercice est en cours.";
             lblDesordreEtatExo.Font = new Font(lblDesordreEtatExo.Font, FontStyle.Bold);
-
+            lblTraduc.Text = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[2].ToString();
+            label2.Text = phraseJuste;
 
         }
 
@@ -195,7 +204,6 @@ namespace BabbelProject
             lblRep.Visible = true;
             lblRep.Font = new Font("Georgia", 14);
             lblRep.Location = new Point(45, 45);
-            lblNonValide.Visible = true;
             lblRep.Name = "lblReponse";
             lblRep.ForeColor = Color.FromArgb(255, 175, 64);
             lblDesordreEtatExo.Text = "Cet exercice est Raté.";
@@ -224,7 +232,6 @@ namespace BabbelProject
                     lblRep.Visible = true;
                     lblRep.Font = new Font("Georgia", 14);
                     lblRep.Location = new Point(45, 45);
-                    lblNonValide.Visible = true;
                     lblRep.Name = "lblReponse";
                     lblRep.ForeColor = Color.FromArgb(50, 255, 126);
                 }
@@ -257,7 +264,6 @@ namespace BabbelProject
                 lblRep.Visible = true;
                 lblRep.Font = new Font("Georgia", 14);
                 lblRep.Location = new Point(45, 45);
-                lblNonValide.Visible = true;
                 lblRep.Name = "lblReponse";
                 lblRep.Font = new Font(lblRep.Font, FontStyle.Bold);
                 lblRep.ForeColor = Color.FromArgb(255, 77, 77);
