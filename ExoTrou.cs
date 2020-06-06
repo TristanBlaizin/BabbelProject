@@ -8,6 +8,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BabbelProject
 {
@@ -95,41 +96,8 @@ namespace BabbelProject
             }
           
         }
-
-        public static void txtVerification_TextChanged (object sender, EventArgs e)
+        public void txtVerification_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void ExoTrou_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e) //btnTrouValider
-        {
-            DataRow motsPerdu = Babbel.Tables["Exercices"].Select($"listeMots = '{InfosExo.ItemArray[7]}'")[0];
-            DataRow phraseComplete = Babbel.Tables["Phrases"].Select($"codePhrase = '{InfosExo.ItemArray[5]}'")[0];
-            string[] tabMotPerdu = motsPerdu.ItemArray[7].ToString().Split('/');
-            string[] tabMot = phraseComplete.ItemArray[1].ToString().Split(' ');
-            int nbMotsPerdu = tabMotPerdu.Length;
-            Dictionary<String, bool> reponseJuste = new Dictionary<string, bool>();
-            foreach (Control c in grbTrou.Controls)
-            {
-                if (c is TextBox)
-                {
-                    string reponse = c.Text;
-
-                    if (reponse == tabMot[Int64.Parse(tabMotPerdu[0]) - 1])
-                    {
-                        c.BackColor = Color.FromArgb(50,255,126);
-                    }
-                    else
-                    {
-                        c.BackColor = Color.FromArgb(255, 77, 77);
-                    }
-                }
-            }
 
         }
 
@@ -155,6 +123,7 @@ namespace BabbelProject
 
         private void btnTrouSuivant_Click(object sender, EventArgs e)
         {
+            btnVAlider_Click(sender, e);
             try
             {
                 DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
@@ -185,6 +154,32 @@ namespace BabbelProject
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void btnVAlider_Click(object sender, EventArgs e)
+        {
+            DataRow motsPerdu = Babbel.Tables["Exercices"].Select($"listeMots = '{InfosExo.ItemArray[7]}'")[0];
+            DataRow phraseComplete = Babbel.Tables["Phrases"].Select($"codePhrase = '{InfosExo.ItemArray[5]}'")[0];
+            string[] tabMotPerdu = motsPerdu.ItemArray[7].ToString().Split('/');
+            string[] tabMot = phraseComplete.ItemArray[1].ToString().Split(' ');
+            int nbMotsPerdu = tabMotPerdu.Length;
+            Dictionary<String, bool> reponseJuste = new Dictionary<string, bool>();
+            foreach (Control c in grbTrou.Controls)
+            {
+                if (c is TextBox)
+                {
+                    string reponse = c.Text;
+
+                    if (reponse == tabMot[Int64.Parse(tabMotPerdu[0]) - 1])
+                    {
+                        c.BackColor = Color.FromArgb(50, 255, 126);
+                    }
+                    else
+                    {
+                        c.BackColor = Color.FromArgb(255, 77, 77);
+                    }
+                }
+            }
         }
     }
 }

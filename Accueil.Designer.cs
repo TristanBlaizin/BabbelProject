@@ -32,6 +32,12 @@
             this.cbxAcceuilUtilisateur = new System.Windows.Forms.ComboBox();
             this.lblAcceuilIdentification = new System.Windows.Forms.Label();
             this.gpbAcceuil = new System.Windows.Forms.GroupBox();
+            this.lblAdminPhrase = new System.Windows.Forms.Label();
+            this.lblAdminConsigne = new System.Windows.Forms.Label();
+            this.lblAdminCours = new System.Windows.Forms.Label();
+            this.lblAdminLecon = new System.Windows.Forms.Label();
+            this.cbxAdminLecon = new System.Windows.Forms.ComboBox();
+            this.cbxAdminCours = new System.Windows.Forms.ComboBox();
             this.lblPresentation5 = new System.Windows.Forms.Label();
             this.lblPresentation4 = new System.Windows.Forms.Label();
             this.lblPresentation3 = new System.Windows.Forms.Label();
@@ -49,14 +55,8 @@
             this.lblAcceuilLaCasaDeBabel = new System.Windows.Forms.Label();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.lblAdminLaCasaDeBabel = new System.Windows.Forms.Label();
-            this.cbxAdminCours = new System.Windows.Forms.ComboBox();
-            this.cbxAdminLecon = new System.Windows.Forms.ComboBox();
-            this.lblAdminLecon = new System.Windows.Forms.Label();
-            this.lblAdminCours = new System.Windows.Forms.Label();
             this.btnAdminAccueil = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblAdminConsigne = new System.Windows.Forms.Label();
-            this.lblAdminPhrase = new System.Windows.Forms.Label();
             this.gpbAcceuil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauCouleur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauNoirBlanc)).BeginInit();
@@ -121,6 +121,82 @@
             this.gpbAcceuil.TabIndex = 3;
             this.gpbAcceuil.TabStop = false;
             this.gpbAcceuil.Text = "Mon cours actuel: ";
+            // 
+            // lblAdminPhrase
+            // 
+            this.lblAdminPhrase.AutoSize = true;
+            this.lblAdminPhrase.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminPhrase.Location = new System.Drawing.Point(6, 129);
+            this.lblAdminPhrase.Name = "lblAdminPhrase";
+            this.lblAdminPhrase.Size = new System.Drawing.Size(79, 23);
+            this.lblAdminPhrase.TabIndex = 22;
+            this.lblAdminPhrase.Text = "#phrase";
+            this.lblAdminPhrase.Visible = false;
+            // 
+            // lblAdminConsigne
+            // 
+            this.lblAdminConsigne.AutoSize = true;
+            this.lblAdminConsigne.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminConsigne.Location = new System.Drawing.Point(7, 92);
+            this.lblAdminConsigne.Name = "lblAdminConsigne";
+            this.lblAdminConsigne.Size = new System.Drawing.Size(96, 23);
+            this.lblAdminConsigne.TabIndex = 21;
+            this.lblAdminConsigne.Text = "#consigne";
+            this.lblAdminConsigne.Visible = false;
+            // 
+            // lblAdminCours
+            // 
+            this.lblAdminCours.AutoSize = true;
+            this.lblAdminCours.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminCours.Location = new System.Drawing.Point(11, 41);
+            this.lblAdminCours.Name = "lblAdminCours";
+            this.lblAdminCours.Size = new System.Drawing.Size(70, 23);
+            this.lblAdminCours.TabIndex = 20;
+            this.lblAdminCours.Text = "Cours :";
+            this.lblAdminCours.Visible = false;
+            // 
+            // lblAdminLecon
+            // 
+            this.lblAdminLecon.AutoSize = true;
+            this.lblAdminLecon.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminLecon.Location = new System.Drawing.Point(393, 43);
+            this.lblAdminLecon.Name = "lblAdminLecon";
+            this.lblAdminLecon.Size = new System.Drawing.Size(71, 23);
+            this.lblAdminLecon.TabIndex = 19;
+            this.lblAdminLecon.Text = "Leçon :";
+            this.lblAdminLecon.Visible = false;
+            // 
+            // cbxAdminLecon
+            // 
+            this.cbxAdminLecon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.cbxAdminLecon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxAdminLecon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAdminLecon.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAdminLecon.ForeColor = System.Drawing.Color.Transparent;
+            this.cbxAdminLecon.FormattingEnabled = true;
+            this.cbxAdminLecon.Location = new System.Drawing.Point(464, 44);
+            this.cbxAdminLecon.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxAdminLecon.Name = "cbxAdminLecon";
+            this.cbxAdminLecon.Size = new System.Drawing.Size(305, 26);
+            this.cbxAdminLecon.TabIndex = 18;
+            this.cbxAdminLecon.Visible = false;
+            this.cbxAdminLecon.SelectedIndexChanged += new System.EventHandler(this.cbxAdminLecon_SelectedIndexChanged);
+            // 
+            // cbxAdminCours
+            // 
+            this.cbxAdminCours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.cbxAdminCours.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxAdminCours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAdminCours.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAdminCours.ForeColor = System.Drawing.Color.Transparent;
+            this.cbxAdminCours.FormattingEnabled = true;
+            this.cbxAdminCours.Location = new System.Drawing.Point(87, 42);
+            this.cbxAdminCours.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxAdminCours.Name = "cbxAdminCours";
+            this.cbxAdminCours.Size = new System.Drawing.Size(279, 26);
+            this.cbxAdminCours.TabIndex = 17;
+            this.cbxAdminCours.Visible = false;
+            this.cbxAdminCours.SelectedIndexChanged += new System.EventHandler(this.cbxAdminCour_SelectedIndexChanged);
             // 
             // lblPresentation5
             // 
@@ -250,7 +326,7 @@
             // ptbAccueilDrapeauCouleur
             // 
             this.ptbAccueilDrapeauCouleur.Image = ((System.Drawing.Image)(resources.GetObject("ptbAccueilDrapeauCouleur.Image")));
-            this.ptbAccueilDrapeauCouleur.Location = new System.Drawing.Point(547, 111);
+            this.ptbAccueilDrapeauCouleur.Location = new System.Drawing.Point(547, 112);
             this.ptbAccueilDrapeauCouleur.Name = "ptbAccueilDrapeauCouleur";
             this.ptbAccueilDrapeauCouleur.Size = new System.Drawing.Size(196, 130);
             this.ptbAccueilDrapeauCouleur.TabIndex = 10;
@@ -308,60 +384,6 @@
             this.lblAdminLaCasaDeBabel.Text = "La Casa de Babbel";
             this.lblAdminLaCasaDeBabel.Visible = false;
             // 
-            // cbxAdminCours
-            // 
-            this.cbxAdminCours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
-            this.cbxAdminCours.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbxAdminCours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxAdminCours.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxAdminCours.ForeColor = System.Drawing.Color.Transparent;
-            this.cbxAdminCours.FormattingEnabled = true;
-            this.cbxAdminCours.Location = new System.Drawing.Point(87, 42);
-            this.cbxAdminCours.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxAdminCours.Name = "cbxAdminCours";
-            this.cbxAdminCours.Size = new System.Drawing.Size(279, 26);
-            this.cbxAdminCours.TabIndex = 17;
-            this.cbxAdminCours.Visible = false;
-            this.cbxAdminCours.SelectedIndexChanged += new System.EventHandler(this.cbxAdminCour_SelectedIndexChanged);
-            // 
-            // cbxAdminLecon
-            // 
-            this.cbxAdminLecon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
-            this.cbxAdminLecon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbxAdminLecon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxAdminLecon.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxAdminLecon.ForeColor = System.Drawing.Color.Transparent;
-            this.cbxAdminLecon.FormattingEnabled = true;
-            this.cbxAdminLecon.Location = new System.Drawing.Point(464, 44);
-            this.cbxAdminLecon.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxAdminLecon.Name = "cbxAdminLecon";
-            this.cbxAdminLecon.Size = new System.Drawing.Size(305, 26);
-            this.cbxAdminLecon.TabIndex = 18;
-            this.cbxAdminLecon.Visible = false;
-            this.cbxAdminLecon.SelectedIndexChanged += new System.EventHandler(this.cbxAdminLecon_SelectedIndexChanged);
-            // 
-            // lblAdminLecon
-            // 
-            this.lblAdminLecon.AutoSize = true;
-            this.lblAdminLecon.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminLecon.Location = new System.Drawing.Point(393, 43);
-            this.lblAdminLecon.Name = "lblAdminLecon";
-            this.lblAdminLecon.Size = new System.Drawing.Size(71, 23);
-            this.lblAdminLecon.TabIndex = 19;
-            this.lblAdminLecon.Text = "Leçon :";
-            this.lblAdminLecon.Visible = false;
-            // 
-            // lblAdminCours
-            // 
-            this.lblAdminCours.AutoSize = true;
-            this.lblAdminCours.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminCours.Location = new System.Drawing.Point(11, 41);
-            this.lblAdminCours.Name = "lblAdminCours";
-            this.lblAdminCours.Size = new System.Drawing.Size(70, 23);
-            this.lblAdminCours.TabIndex = 20;
-            this.lblAdminCours.Text = "Cours :";
-            this.lblAdminCours.Visible = false;
-            // 
             // btnAdminAccueil
             // 
             this.btnAdminAccueil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
@@ -385,28 +407,6 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "label1";
-            // 
-            // lblAdminConsigne
-            // 
-            this.lblAdminConsigne.AutoSize = true;
-            this.lblAdminConsigne.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminConsigne.Location = new System.Drawing.Point(7, 92);
-            this.lblAdminConsigne.Name = "lblAdminConsigne";
-            this.lblAdminConsigne.Size = new System.Drawing.Size(96, 23);
-            this.lblAdminConsigne.TabIndex = 21;
-            this.lblAdminConsigne.Text = "#consigne";
-            this.lblAdminConsigne.Visible = false;
-            // 
-            // lblAdminPhrase
-            // 
-            this.lblAdminPhrase.AutoSize = true;
-            this.lblAdminPhrase.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminPhrase.Location = new System.Drawing.Point(6, 129);
-            this.lblAdminPhrase.Name = "lblAdminPhrase";
-            this.lblAdminPhrase.Size = new System.Drawing.Size(79, 23);
-            this.lblAdminPhrase.TabIndex = 22;
-            this.lblAdminPhrase.Text = "#phrase";
-            this.lblAdminPhrase.Visible = false;
             // 
             // Accueil
             // 

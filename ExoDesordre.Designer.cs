@@ -38,6 +38,7 @@
             this.btnDesordreSuivant = new System.Windows.Forms.Button();
             this.lblDesordreEtatExo = new System.Windows.Forms.Label();
             this.lblTraduc = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // grpContainer
@@ -103,7 +104,7 @@
             this.btnDesordreValider.TabIndex = 14;
             this.btnDesordreValider.Text = "Valider";
             this.btnDesordreValider.UseVisualStyleBackColor = false;
-            this.btnDesordreValider.Click += new System.EventHandler(this.btnTrouValider_Click);
+            this.btnDesordreValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // lblDesordreConsigne
             // 
@@ -156,12 +157,22 @@
             this.lblTraduc.Text = "traduction";
             this.lblTraduc.UseWaitCursor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(57, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "label1";
+            // 
             // ExoDesordre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTraduc);
             this.Controls.Add(this.lblDesordreEtatExo);
             this.Controls.Add(this.btnDesordreSuivant);
@@ -189,5 +200,6 @@
         private System.Windows.Forms.Button btnDesordreSuivant;
         private System.Windows.Forms.Label lblDesordreEtatExo;
         private System.Windows.Forms.Label lblTraduc;
+        private System.Windows.Forms.Label label1;
     }
 }

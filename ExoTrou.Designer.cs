@@ -97,7 +97,7 @@
             this.btnTrouValider.TabIndex = 13;
             this.btnTrouValider.Text = "Valider";
             this.btnTrouValider.UseVisualStyleBackColor = false;
-            this.btnTrouValider.Click += new System.EventHandler(this.button1_Click);
+            this.btnTrouValider.Click += new System.EventHandler(this.btnVAlider_Click);
             // 
             // btnTrouSuivant
             // 

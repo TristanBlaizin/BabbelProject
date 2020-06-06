@@ -18,8 +18,10 @@ namespace BabbelProject
         public OleDbConnection connec;
 
         public DataSet Babbel = new DataSet();
-
+        public DataTable TableVerifExo = new DataTable();
         public bool firstLoad = true;
+
+        public List<string> admin = new List<string>();
 
         public Accueil()
         {
@@ -66,15 +68,33 @@ namespace BabbelProject
             }
         }
 
-        List<string> admin = new List<string>();
 
+        public void InitTableVerif()
+        {
+            TableVerifExo.Columns.Add(new DataColumn("numExo", typeof(int)));
+            TableVerifExo.Columns.Add(new DataColumn("finish", typeof(bool)));
+        }
+        public void changeTableVerif(DataRow utilisateur, DataRow[] exos)
+        {
+            int i = 0;
+            foreach (DataRow row in exos)
+            {
+                if(i < (int)utilisateur.ItemArray[4])
+                    TableVerifExo.Rows.Add(row.ItemArray[0], true);
+                else
+                    TableVerifExo.Rows.Add(row.ItemArray[0], false);
+                i++;
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = ..\..\baseLangue.mdb";
 
             connec = new OleDbConnection();
             connec.ConnectionString = ch_connect;
+
             InitDeconnecte();
+            InitTableVerif();
 
             DataRowCollection rowArray = Babbel.Tables["Utilisateurs"].Rows;
             foreach (DataRow row in rowArray)
@@ -90,7 +110,7 @@ namespace BabbelProject
 
         private void CbxUtilisateur_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
             if (firstLoad)
             {
                 firstLoad = false;
@@ -109,6 +129,8 @@ namespace BabbelProject
             lblAccueilExo.Text = $"Exercices terminés: {InfosUtilisateur.ItemArray[4]}/{NbExo.ToString()}";
             ptbAccueilDrapeauNoirBlanc.Visible = true;
 
+            changeDrapeau();
+            changeTableVerif(InfosUtilisateur, Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0]}'"));
             for (int i = 0; i<admin.Count; i++)
             {
                 if (admin[i] == cbxAcceuilUtilisateur.SelectedItem.ToString())
@@ -218,16 +240,15 @@ namespace BabbelProject
 
         }
 
-        //int largeur= 0;
-        //int hauteur = 0; 
-        /*private void testdrap_Click(object sender, EventArgs e)
-        {
-            int exoTerm = 8; //Modifier la source après  que un exo soit fini 
+        int hauteur = 0;
+        int largeur = 0;
+        // ptbAccueilDrapeauNoirBlanc
+        // 
+        private void changeDrapeau()
+        { 
+            int exoTerm = TableVerifExo.Select("finish = true").Length;
             hauteur +=195;
-            Image nomImage = pictureBox1.Image;
-            pictureBox1.Size = new Size(hauteur, largeur);
-            pictureBox1.Visible = true;
-            string utilisateur = cbxUtilisateur.SelectedItem.ToString();
+            string utilisateur = cbxAcceuilUtilisateur.SelectedItem.ToString();
             string prenom = utilisateur.Split(' ')[0];
             DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
             string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
@@ -242,6 +263,11 @@ namespace BabbelProject
             {
                 largeur = exoTerm * (140 / NbExo);
             }
-        }*/
+            Image nomImage = ptbAccueilDrapeauCouleur.Image;
+            ptbAccueilDrapeauCouleur.Size = new Size(hauteur, largeur);
+            ptbAccueilDrapeauCouleur.Visible = true;
+            
+            
+        }
     }
 }

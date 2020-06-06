@@ -107,7 +107,6 @@ namespace BabbelProject
                 }
                 i++;
             }
-            label1.Text = correction;
         }
         public ExoDesordre()
         {
@@ -121,23 +120,21 @@ namespace BabbelProject
             this.Babbel = BDD;
             this.utilisateur = utilisateur;
         }
+
         private void ExoDesordre_Load(object sender, EventArgs e)
         {
             lblDesordreConsigne.Text = InfosExo.ItemArray[3].ToString();
             int codePhrase = (int)InfosExo.ItemArray[5];
             phraseJuste = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
-
+            label1.Text = phraseJuste;
             InitPhrase();
             InitLabelSolution(phraseJuste.Split(' ').Length, phraseJuste.Split(' '));
             lblDesordreEtatExo.Text = "Cet exercice est en cours.";
             lblDesordreEtatExo.Font = new Font(lblDesordreEtatExo.Font, FontStyle.Bold);
             lblTraduc.Text = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[2].ToString();
-            label2.Text = phraseJuste;
-
+        
         }
 
-
-        
         private void ClickLbl(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
@@ -158,12 +155,9 @@ namespace BabbelProject
             }
             
             ModifPhraseConstruction();
-            
-
+           
             lbl.Visible = false;
             lbl.Enabled = false;
-
-
 
         }
 
@@ -213,7 +207,51 @@ namespace BabbelProject
 
         }
 
-        private void btnTrouValider_Click(object sender, EventArgs e) //ça n'a pas modifié le nom mais c'est ok 
+        private void btnSolution_MouseHover(object sender, EventArgs e)
+        {
+
+            ToolTip messageAttention = new ToolTip();
+            messageAttention.AutoPopDelay = 10000;
+            messageAttention.SetToolTip(btnSolution, "Attention : si vous appuyez, l'exercice sera à recommencer.");
+            
+        }
+
+        private void btnDesordreSuivant_Click(object sender, EventArgs e)
+        {
+            btnValider_Click(sender, e);
+            try
+            {
+                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+                if (InfosExoSuivant.Length != 0)
+                {
+                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
+                    {
+                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                        LeconVocabulaire.Show();
+
+                    }
+                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                    {
+                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoDesordre.Show();
+                    }
+                    else
+                    {
+                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoATrou.Show();
+                    }
+                }
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void btnValider_Click(object sender, EventArgs e)
         {
             if (correction == phraseJuste)
             {
@@ -248,7 +286,7 @@ namespace BabbelProject
                     Label lbl = (Label)label;
                     lbl.Visible = false;
                     lbl.Enabled = false;
-                    
+
                 }
                 foreach (Control label in grpSolution.Controls)
                 {
@@ -268,51 +306,6 @@ namespace BabbelProject
                 lblRep.Font = new Font(lblRep.Font, FontStyle.Bold);
                 lblRep.ForeColor = Color.FromArgb(255, 77, 77);
             }
-        }
-
-        
-
-        private void btnSolution_MouseHover(object sender, EventArgs e)
-        {
-
-            ToolTip messageAttention = new ToolTip();
-            messageAttention.AutoPopDelay = 10000;
-            messageAttention.SetToolTip(btnSolution, "Attention : si vous appuyez, l'exercice sera à recommencer.");
-            
-        }
-
-        private void btnDesordreSuivant_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
-                if (InfosExoSuivant.Length != 0)
-                {
-                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
-                    {
-                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
-                        LeconVocabulaire.Show();
-
-                    }
-                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
-                    {
-                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
-                        ExoDesordre.Show();
-                    }
-                    else
-                    {
-                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
-                        ExoATrou.Show();
-                    }
-                }
-                this.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
         }
     }
 }
