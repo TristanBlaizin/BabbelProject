@@ -29,82 +29,98 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accueil));
-            this.cbxUtilisateur = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxAcceuilUtilisateur = new System.Windows.Forms.ComboBox();
+            this.lblAcceuilIdentification = new System.Windows.Forms.Label();
+            this.gpbAcceuil = new System.Windows.Forms.GroupBox();
             this.lblPresentation5 = new System.Windows.Forms.Label();
             this.lblPresentation4 = new System.Windows.Forms.Label();
             this.lblPresentation3 = new System.Windows.Forms.Label();
             this.lblPresentation2 = new System.Windows.Forms.Label();
             this.lblPresentation1 = new System.Windows.Forms.Label();
             this.btnExo = new System.Windows.Forms.Button();
-            this.lblExo = new System.Windows.Forms.Label();
-            this.lblCommentLesson = new System.Windows.Forms.Label();
-            this.lblLesson = new System.Windows.Forms.Label();
-            this.lblTitleLesson = new System.Windows.Forms.Label();
-            this.lblCours = new System.Windows.Forms.Label();
-            this.lblTitleCours = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.lblAccueilExo = new System.Windows.Forms.Label();
+            this.lblAccueilComentLecon = new System.Windows.Forms.Label();
+            this.lblAccueilLecon2 = new System.Windows.Forms.Label();
+            this.lblAcceuilLecon = new System.Windows.Forms.Label();
+            this.lblAccueilCours2 = new System.Windows.Forms.Label();
+            this.lblAcceuilCoursActuelle = new System.Windows.Forms.Label();
+            this.ptbAccueilDrapeauCouleur = new System.Windows.Forms.PictureBox();
+            this.ptbAccueilDrapeauNoirBlanc = new System.Windows.Forms.PictureBox();
+            this.lblAcceuilLaCasaDeBabel = new System.Windows.Forms.Label();
+            this.btnAdmin = new System.Windows.Forms.Button();
+            this.lblAdminLaCasaDeBabel = new System.Windows.Forms.Label();
+            this.cbxAdminCours = new System.Windows.Forms.ComboBox();
+            this.cbxAdminLecon = new System.Windows.Forms.ComboBox();
+            this.lblAdminLecon = new System.Windows.Forms.Label();
+            this.lblAdminCours = new System.Windows.Forms.Label();
+            this.btnAdminAccueil = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblAdminConsigne = new System.Windows.Forms.Label();
+            this.lblAdminPhrase = new System.Windows.Forms.Label();
+            this.gpbAcceuil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauCouleur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauNoirBlanc)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbxUtilisateur
+            // cbxAcceuilUtilisateur
             // 
-            this.cbxUtilisateur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
-            this.cbxUtilisateur.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbxUtilisateur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxUtilisateur.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxUtilisateur.ForeColor = System.Drawing.Color.Transparent;
-            this.cbxUtilisateur.FormattingEnabled = true;
-            this.cbxUtilisateur.Location = new System.Drawing.Point(155, 55);
-            this.cbxUtilisateur.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxUtilisateur.Name = "cbxUtilisateur";
-            this.cbxUtilisateur.Size = new System.Drawing.Size(172, 26);
-            this.cbxUtilisateur.TabIndex = 1;
-            this.cbxUtilisateur.SelectedIndexChanged += new System.EventHandler(this.CbxUtilisateur_SelectedIndexChanged);
-            this.cbxUtilisateur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxUtilisateur_KeyPress);
+            this.cbxAcceuilUtilisateur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.cbxAcceuilUtilisateur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxAcceuilUtilisateur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAcceuilUtilisateur.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAcceuilUtilisateur.ForeColor = System.Drawing.Color.Transparent;
+            this.cbxAcceuilUtilisateur.FormattingEnabled = true;
+            this.cbxAcceuilUtilisateur.Location = new System.Drawing.Point(155, 55);
+            this.cbxAcceuilUtilisateur.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxAcceuilUtilisateur.Name = "cbxAcceuilUtilisateur";
+            this.cbxAcceuilUtilisateur.Size = new System.Drawing.Size(172, 26);
+            this.cbxAcceuilUtilisateur.TabIndex = 1;
+            this.cbxAcceuilUtilisateur.SelectedIndexChanged += new System.EventHandler(this.CbxUtilisateur_SelectedIndexChanged);
+            this.cbxAcceuilUtilisateur.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxUtilisateur_KeyPress);
             // 
-            // label1
+            // lblAcceuilIdentification
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Identifiez-vous: ";
+            this.lblAcceuilIdentification.AutoSize = true;
+            this.lblAcceuilIdentification.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceuilIdentification.Location = new System.Drawing.Point(6, 54);
+            this.lblAcceuilIdentification.Name = "lblAcceuilIdentification";
+            this.lblAcceuilIdentification.Size = new System.Drawing.Size(146, 23);
+            this.lblAcceuilIdentification.TabIndex = 2;
+            this.lblAcceuilIdentification.Text = "Identifiez-vous: ";
             // 
-            // groupBox1
+            // gpbAcceuil
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lblPresentation5);
-            this.groupBox1.Controls.Add(this.lblPresentation4);
-            this.groupBox1.Controls.Add(this.lblPresentation3);
-            this.groupBox1.Controls.Add(this.lblPresentation2);
-            this.groupBox1.Controls.Add(this.lblPresentation1);
-            this.groupBox1.Controls.Add(this.btnExo);
-            this.groupBox1.Controls.Add(this.lblExo);
-            this.groupBox1.Controls.Add(this.lblCommentLesson);
-            this.groupBox1.Controls.Add(this.lblLesson);
-            this.groupBox1.Controls.Add(this.lblTitleLesson);
-            this.groupBox1.Controls.Add(this.lblCours);
-            this.groupBox1.Controls.Add(this.lblTitleCours);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbxUtilisateur);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
-            this.groupBox1.Location = new System.Drawing.Point(13, 126);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 312);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Mon cours actuel: ";
+            this.gpbAcceuil.BackColor = System.Drawing.Color.Transparent;
+            this.gpbAcceuil.Controls.Add(this.lblAdminPhrase);
+            this.gpbAcceuil.Controls.Add(this.lblAdminConsigne);
+            this.gpbAcceuil.Controls.Add(this.lblAdminCours);
+            this.gpbAcceuil.Controls.Add(this.lblAdminLecon);
+            this.gpbAcceuil.Controls.Add(this.cbxAdminLecon);
+            this.gpbAcceuil.Controls.Add(this.cbxAdminCours);
+            this.gpbAcceuil.Controls.Add(this.lblPresentation5);
+            this.gpbAcceuil.Controls.Add(this.lblPresentation4);
+            this.gpbAcceuil.Controls.Add(this.lblPresentation3);
+            this.gpbAcceuil.Controls.Add(this.lblPresentation2);
+            this.gpbAcceuil.Controls.Add(this.lblPresentation1);
+            this.gpbAcceuil.Controls.Add(this.btnExo);
+            this.gpbAcceuil.Controls.Add(this.lblAccueilExo);
+            this.gpbAcceuil.Controls.Add(this.lblAccueilComentLecon);
+            this.gpbAcceuil.Controls.Add(this.lblAccueilLecon2);
+            this.gpbAcceuil.Controls.Add(this.lblAcceuilLecon);
+            this.gpbAcceuil.Controls.Add(this.lblAccueilCours2);
+            this.gpbAcceuil.Controls.Add(this.lblAcceuilCoursActuelle);
+            this.gpbAcceuil.Controls.Add(this.lblAcceuilIdentification);
+            this.gpbAcceuil.Controls.Add(this.cbxAcceuilUtilisateur);
+            this.gpbAcceuil.Controls.Add(this.ptbAccueilDrapeauCouleur);
+            this.gpbAcceuil.Controls.Add(this.ptbAccueilDrapeauNoirBlanc);
+            this.gpbAcceuil.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbAcceuil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.gpbAcceuil.Location = new System.Drawing.Point(13, 126);
+            this.gpbAcceuil.Name = "gpbAcceuil";
+            this.gpbAcceuil.Size = new System.Drawing.Size(775, 312);
+            this.gpbAcceuil.TabIndex = 3;
+            this.gpbAcceuil.TabStop = false;
+            this.gpbAcceuil.Text = "Mon cours actuel: ";
             // 
             // lblPresentation5
             // 
@@ -173,95 +189,224 @@
             this.btnExo.Visible = false;
             this.btnExo.Click += new System.EventHandler(this.BtnExo_Click);
             // 
-            // lblExo
+            // lblAccueilExo
             // 
-            this.lblExo.AutoSize = true;
-            this.lblExo.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExo.Location = new System.Drawing.Point(543, 54);
-            this.lblExo.Name = "lblExo";
-            this.lblExo.Size = new System.Drawing.Size(0, 23);
-            this.lblExo.TabIndex = 8;
+            this.lblAccueilExo.AutoSize = true;
+            this.lblAccueilExo.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccueilExo.Location = new System.Drawing.Point(543, 54);
+            this.lblAccueilExo.Name = "lblAccueilExo";
+            this.lblAccueilExo.Size = new System.Drawing.Size(0, 23);
+            this.lblAccueilExo.TabIndex = 8;
             // 
-            // lblCommentLesson
+            // lblAccueilComentLecon
             // 
-            this.lblCommentLesson.AutoSize = true;
-            this.lblCommentLesson.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommentLesson.Location = new System.Drawing.Point(8, 178);
-            this.lblCommentLesson.Name = "lblCommentLesson";
-            this.lblCommentLesson.Size = new System.Drawing.Size(0, 18);
-            this.lblCommentLesson.TabIndex = 7;
+            this.lblAccueilComentLecon.AutoSize = true;
+            this.lblAccueilComentLecon.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccueilComentLecon.Location = new System.Drawing.Point(8, 178);
+            this.lblAccueilComentLecon.Name = "lblAccueilComentLecon";
+            this.lblAccueilComentLecon.Size = new System.Drawing.Size(0, 18);
+            this.lblAccueilComentLecon.TabIndex = 7;
             // 
-            // lblLesson
+            // lblAccueilLecon2
             // 
-            this.lblLesson.AutoSize = true;
-            this.lblLesson.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLesson.Location = new System.Drawing.Point(84, 147);
-            this.lblLesson.Name = "lblLesson";
-            this.lblLesson.Size = new System.Drawing.Size(0, 18);
-            this.lblLesson.TabIndex = 6;
+            this.lblAccueilLecon2.AutoSize = true;
+            this.lblAccueilLecon2.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccueilLecon2.Location = new System.Drawing.Point(84, 147);
+            this.lblAccueilLecon2.Name = "lblAccueilLecon2";
+            this.lblAccueilLecon2.Size = new System.Drawing.Size(0, 18);
+            this.lblAccueilLecon2.TabIndex = 6;
             // 
-            // lblTitleLesson
+            // lblAcceuilLecon
             // 
-            this.lblTitleLesson.AutoSize = true;
-            this.lblTitleLesson.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleLesson.Location = new System.Drawing.Point(7, 143);
-            this.lblTitleLesson.Name = "lblTitleLesson";
-            this.lblTitleLesson.Size = new System.Drawing.Size(71, 23);
-            this.lblTitleLesson.TabIndex = 5;
-            this.lblTitleLesson.Text = "Leçon :";
-            this.lblTitleLesson.Visible = false;
+            this.lblAcceuilLecon.AutoSize = true;
+            this.lblAcceuilLecon.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceuilLecon.Location = new System.Drawing.Point(7, 143);
+            this.lblAcceuilLecon.Name = "lblAcceuilLecon";
+            this.lblAcceuilLecon.Size = new System.Drawing.Size(71, 23);
+            this.lblAcceuilLecon.TabIndex = 5;
+            this.lblAcceuilLecon.Text = "Leçon :";
+            this.lblAcceuilLecon.Visible = false;
             // 
-            // lblCours
+            // lblAccueilCours2
             // 
-            this.lblCours.AutoSize = true;
-            this.lblCours.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCours.Location = new System.Drawing.Point(182, 111);
-            this.lblCours.Name = "lblCours";
-            this.lblCours.Size = new System.Drawing.Size(0, 18);
-            this.lblCours.TabIndex = 4;
+            this.lblAccueilCours2.AutoSize = true;
+            this.lblAccueilCours2.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccueilCours2.Location = new System.Drawing.Point(182, 111);
+            this.lblAccueilCours2.Name = "lblAccueilCours2";
+            this.lblAccueilCours2.Size = new System.Drawing.Size(0, 18);
+            this.lblAccueilCours2.TabIndex = 4;
             // 
-            // lblTitleCours
+            // lblAcceuilCoursActuelle
             // 
-            this.lblTitleCours.AutoSize = true;
-            this.lblTitleCours.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleCours.Location = new System.Drawing.Point(7, 106);
-            this.lblTitleCours.Name = "lblTitleCours";
-            this.lblTitleCours.Size = new System.Drawing.Size(175, 23);
-            this.lblTitleCours.TabIndex = 3;
-            this.lblTitleCours.Text = "Votre cours actuel: ";
-            this.lblTitleCours.Visible = false;
+            this.lblAcceuilCoursActuelle.AutoSize = true;
+            this.lblAcceuilCoursActuelle.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceuilCoursActuelle.Location = new System.Drawing.Point(7, 106);
+            this.lblAcceuilCoursActuelle.Name = "lblAcceuilCoursActuelle";
+            this.lblAcceuilCoursActuelle.Size = new System.Drawing.Size(175, 23);
+            this.lblAcceuilCoursActuelle.TabIndex = 3;
+            this.lblAcceuilCoursActuelle.Text = "Votre cours actuel: ";
+            this.lblAcceuilCoursActuelle.Visible = false;
             // 
-            // pictureBox1
+            // ptbAccueilDrapeauCouleur
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(547, 111);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 130);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
+            this.ptbAccueilDrapeauCouleur.Image = ((System.Drawing.Image)(resources.GetObject("ptbAccueilDrapeauCouleur.Image")));
+            this.ptbAccueilDrapeauCouleur.Location = new System.Drawing.Point(547, 111);
+            this.ptbAccueilDrapeauCouleur.Name = "ptbAccueilDrapeauCouleur";
+            this.ptbAccueilDrapeauCouleur.Size = new System.Drawing.Size(196, 130);
+            this.ptbAccueilDrapeauCouleur.TabIndex = 10;
+            this.ptbAccueilDrapeauCouleur.TabStop = false;
+            this.ptbAccueilDrapeauCouleur.Visible = false;
             // 
-            // pictureBox2
+            // ptbAccueilDrapeauNoirBlanc
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(547, 111);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(196, 130);
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
+            this.ptbAccueilDrapeauNoirBlanc.Image = ((System.Drawing.Image)(resources.GetObject("ptbAccueilDrapeauNoirBlanc.Image")));
+            this.ptbAccueilDrapeauNoirBlanc.Location = new System.Drawing.Point(547, 111);
+            this.ptbAccueilDrapeauNoirBlanc.Name = "ptbAccueilDrapeauNoirBlanc";
+            this.ptbAccueilDrapeauNoirBlanc.Size = new System.Drawing.Size(196, 130);
+            this.ptbAccueilDrapeauNoirBlanc.TabIndex = 16;
+            this.ptbAccueilDrapeauNoirBlanc.TabStop = false;
+            this.ptbAccueilDrapeauNoirBlanc.Visible = false;
             // 
-            // label6
+            // lblAcceuilLaCasaDeBabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
-            this.label6.Location = new System.Drawing.Point(215, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(368, 43);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "La Casa de Babbel";
+            this.lblAcceuilLaCasaDeBabel.AutoSize = true;
+            this.lblAcceuilLaCasaDeBabel.BackColor = System.Drawing.Color.Transparent;
+            this.lblAcceuilLaCasaDeBabel.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceuilLaCasaDeBabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
+            this.lblAcceuilLaCasaDeBabel.Location = new System.Drawing.Point(215, 48);
+            this.lblAcceuilLaCasaDeBabel.Name = "lblAcceuilLaCasaDeBabel";
+            this.lblAcceuilLaCasaDeBabel.Size = new System.Drawing.Size(368, 43);
+            this.lblAcceuilLaCasaDeBabel.TabIndex = 6;
+            this.lblAcceuilLaCasaDeBabel.Text = "La Casa de Babbel";
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAdmin.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAdmin.Location = new System.Drawing.Point(617, 97);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(171, 38);
+            this.btnAdmin.TabIndex = 17;
+            this.btnAdmin.Text = "Administration";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Visible = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
+            // lblAdminLaCasaDeBabel
+            // 
+            this.lblAdminLaCasaDeBabel.AutoSize = true;
+            this.lblAdminLaCasaDeBabel.BackColor = System.Drawing.Color.Transparent;
+            this.lblAdminLaCasaDeBabel.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminLaCasaDeBabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
+            this.lblAdminLaCasaDeBabel.Location = new System.Drawing.Point(20, 36);
+            this.lblAdminLaCasaDeBabel.Name = "lblAdminLaCasaDeBabel";
+            this.lblAdminLaCasaDeBabel.Size = new System.Drawing.Size(368, 43);
+            this.lblAdminLaCasaDeBabel.TabIndex = 19;
+            this.lblAdminLaCasaDeBabel.Text = "La Casa de Babbel";
+            this.lblAdminLaCasaDeBabel.Visible = false;
+            // 
+            // cbxAdminCours
+            // 
+            this.cbxAdminCours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.cbxAdminCours.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxAdminCours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAdminCours.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAdminCours.ForeColor = System.Drawing.Color.Transparent;
+            this.cbxAdminCours.FormattingEnabled = true;
+            this.cbxAdminCours.Location = new System.Drawing.Point(87, 42);
+            this.cbxAdminCours.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxAdminCours.Name = "cbxAdminCours";
+            this.cbxAdminCours.Size = new System.Drawing.Size(279, 26);
+            this.cbxAdminCours.TabIndex = 17;
+            this.cbxAdminCours.Visible = false;
+            this.cbxAdminCours.SelectedIndexChanged += new System.EventHandler(this.cbxAdminCour_SelectedIndexChanged);
+            // 
+            // cbxAdminLecon
+            // 
+            this.cbxAdminLecon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.cbxAdminLecon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbxAdminLecon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxAdminLecon.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAdminLecon.ForeColor = System.Drawing.Color.Transparent;
+            this.cbxAdminLecon.FormattingEnabled = true;
+            this.cbxAdminLecon.Location = new System.Drawing.Point(464, 44);
+            this.cbxAdminLecon.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxAdminLecon.Name = "cbxAdminLecon";
+            this.cbxAdminLecon.Size = new System.Drawing.Size(305, 26);
+            this.cbxAdminLecon.TabIndex = 18;
+            this.cbxAdminLecon.Visible = false;
+            this.cbxAdminLecon.SelectedIndexChanged += new System.EventHandler(this.cbxAdminLecon_SelectedIndexChanged);
+            // 
+            // lblAdminLecon
+            // 
+            this.lblAdminLecon.AutoSize = true;
+            this.lblAdminLecon.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminLecon.Location = new System.Drawing.Point(393, 43);
+            this.lblAdminLecon.Name = "lblAdminLecon";
+            this.lblAdminLecon.Size = new System.Drawing.Size(71, 23);
+            this.lblAdminLecon.TabIndex = 19;
+            this.lblAdminLecon.Text = "Leçon :";
+            this.lblAdminLecon.Visible = false;
+            // 
+            // lblAdminCours
+            // 
+            this.lblAdminCours.AutoSize = true;
+            this.lblAdminCours.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminCours.Location = new System.Drawing.Point(11, 41);
+            this.lblAdminCours.Name = "lblAdminCours";
+            this.lblAdminCours.Size = new System.Drawing.Size(70, 23);
+            this.lblAdminCours.TabIndex = 20;
+            this.lblAdminCours.Text = "Cours :";
+            this.lblAdminCours.Visible = false;
+            // 
+            // btnAdminAccueil
+            // 
+            this.btnAdminAccueil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAdminAccueil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminAccueil.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAdminAccueil.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAdminAccueil.Location = new System.Drawing.Point(679, 97);
+            this.btnAdminAccueil.Name = "btnAdminAccueil";
+            this.btnAdminAccueil.Size = new System.Drawing.Size(109, 38);
+            this.btnAdminAccueil.TabIndex = 20;
+            this.btnAdminAccueil.Text = "Accueil";
+            this.btnAdminAccueil.UseVisualStyleBackColor = false;
+            this.btnAdminAccueil.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(386, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "label1";
+            // 
+            // lblAdminConsigne
+            // 
+            this.lblAdminConsigne.AutoSize = true;
+            this.lblAdminConsigne.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminConsigne.Location = new System.Drawing.Point(7, 92);
+            this.lblAdminConsigne.Name = "lblAdminConsigne";
+            this.lblAdminConsigne.Size = new System.Drawing.Size(96, 23);
+            this.lblAdminConsigne.TabIndex = 21;
+            this.lblAdminConsigne.Text = "#consigne";
+            this.lblAdminConsigne.Visible = false;
+            // 
+            // lblAdminPhrase
+            // 
+            this.lblAdminPhrase.AutoSize = true;
+            this.lblAdminPhrase.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminPhrase.Location = new System.Drawing.Point(6, 129);
+            this.lblAdminPhrase.Name = "lblAdminPhrase";
+            this.lblAdminPhrase.Size = new System.Drawing.Size(79, 23);
+            this.lblAdminPhrase.TabIndex = 22;
+            this.lblAdminPhrase.Text = "#phrase";
+            this.lblAdminPhrase.Visible = false;
             // 
             // Accueil
             // 
@@ -270,39 +415,53 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(121)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 450);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnAdminAccueil);
+            this.Controls.Add(this.lblAdminLaCasaDeBabel);
+            this.Controls.Add(this.btnAdmin);
+            this.Controls.Add(this.lblAcceuilLaCasaDeBabel);
+            this.Controls.Add(this.gpbAcceuil);
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.gpbAcceuil.ResumeLayout(false);
+            this.gpbAcceuil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauCouleur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauNoirBlanc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cbxUtilisateur;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblCours;
-        private System.Windows.Forms.Label lblTitleCours;
-        private System.Windows.Forms.Label lblLesson;
-        private System.Windows.Forms.Label lblTitleLesson;
-        private System.Windows.Forms.Label lblCommentLesson;
-        private System.Windows.Forms.Label lblExo;
+        private System.Windows.Forms.ComboBox cbxAcceuilUtilisateur;
+        private System.Windows.Forms.Label lblAcceuilIdentification;
+        private System.Windows.Forms.GroupBox gpbAcceuil;
+        private System.Windows.Forms.Label lblAccueilCours2;
+        private System.Windows.Forms.Label lblAcceuilCoursActuelle;
+        private System.Windows.Forms.Label lblAccueilLecon2;
+        private System.Windows.Forms.Label lblAcceuilLecon;
+        private System.Windows.Forms.Label lblAccueilComentLecon;
+        private System.Windows.Forms.Label lblAccueilExo;
         private System.Windows.Forms.Button btnExo;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblAcceuilLaCasaDeBabel;
+        private System.Windows.Forms.PictureBox ptbAccueilDrapeauCouleur;
         private System.Windows.Forms.Label lblPresentation3;
         private System.Windows.Forms.Label lblPresentation2;
         private System.Windows.Forms.Label lblPresentation1;
         private System.Windows.Forms.Label lblPresentation5;
         private System.Windows.Forms.Label lblPresentation4;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox ptbAccueilDrapeauNoirBlanc;
+        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.Label lblAdminLaCasaDeBabel;
+        private System.Windows.Forms.ComboBox cbxAdminLecon;
+        private System.Windows.Forms.ComboBox cbxAdminCours;
+        private System.Windows.Forms.Label lblAdminCours;
+        private System.Windows.Forms.Label lblAdminLecon;
+        private System.Windows.Forms.Button btnAdminAccueil;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAdminConsigne;
+        private System.Windows.Forms.Label lblAdminPhrase;
     }
 }
 

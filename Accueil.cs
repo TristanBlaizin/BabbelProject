@@ -33,8 +33,8 @@ namespace BabbelProject
             lblPresentation3.Visible = false;
             lblPresentation4.Visible = false;
             lblPresentation5.Visible = false;
-            lblTitleCours.Visible = true;
-            lblTitleLesson.Visible = true;
+            lblAcceuilCoursActuelle.Visible = true;
+            lblAcceuilLecon.Visible = true;
             btnExo.Visible = true;
         }
 
@@ -66,6 +66,8 @@ namespace BabbelProject
             }
         }
 
+        List<string> admin = new List<string>();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ch_connect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = ..\..\baseLangue.mdb";
@@ -79,8 +81,11 @@ namespace BabbelProject
             {
                 string prenom = row.ItemArray[2].ToString();
                 string nom = row.ItemArray[1].ToString();
-                cbxUtilisateur.Items.Add($"{prenom} {nom}");
+                cbxAcceuilUtilisateur.Items.Add($"{prenom} {nom}");
             }
+            admin.Add("Véronique Richard"); //tenter de regler le probleme
+            admin.Add("Murielle Torregrossa");
+
         }
 
         private void CbxUtilisateur_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,24 +96,36 @@ namespace BabbelProject
                 firstLoad = false;
                 ChangeFirstLoad();
             }
-            string utilisateur = cbxUtilisateur.SelectedItem.ToString();
+            string utilisateur = cbxAcceuilUtilisateur.SelectedItem.ToString();
             string prenom = utilisateur.Split(' ')[0];
             DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
             string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
             DataRow InfosCours = Babbel.Tables["Cours"].Select($"numCours = '{codeCourActuel}'")[0];
             DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
             int NbExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0]}'").Length;
-            lblCours.Text = InfosCours.ItemArray[1].ToString();
-            lblLesson.Text = InfosLecons.ItemArray[2].ToString();
-            lblCommentLesson.Text = InfosLecons.ItemArray[3].ToString();
-            lblExo.Text = $"Exercices terminés: {InfosUtilisateur.ItemArray[4]}/{NbExo.ToString()}";
-            pictureBox2.Visible = true;
+            lblAccueilCours2.Text = InfosCours.ItemArray[1].ToString();
+            lblAccueilLecon2.Text = InfosLecons.ItemArray[2].ToString();
+            lblAccueilComentLecon.Text = InfosLecons.ItemArray[3].ToString();
+            lblAccueilExo.Text = $"Exercices terminés: {InfosUtilisateur.ItemArray[4]}/{NbExo.ToString()}";
+            ptbAccueilDrapeauNoirBlanc.Visible = true;
+
+            for (int i = 0; i<admin.Count; i++)
+            {
+                if (admin[i] == cbxAcceuilUtilisateur.SelectedItem.ToString())
+                {
+                    btnAdmin.Visible = true;
+                }
+                else
+                {
+                    btnAdmin.Visible = false;
+                }
+            }
 
         }
 
         private void BtnExo_Click(object sender, EventArgs e)
         {
-            string utilisateur = cbxUtilisateur.SelectedItem.ToString();
+            string utilisateur = cbxAcceuilUtilisateur.SelectedItem.ToString();
             string prenom = utilisateur.Split(' ')[0];
             DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
             string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
@@ -137,6 +154,68 @@ namespace BabbelProject
         private void cbxUtilisateur_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            gpbAcceuil.Text = "Panneau d'administration";
+            lblAcceuilIdentification.Visible = false;
+            cbxAcceuilUtilisateur.Visible = false;
+            lblAcceuilCoursActuelle.Visible = false;
+            lblAcceuilLecon.Visible = false;
+            ptbAccueilDrapeauCouleur.Visible = false;
+            ptbAccueilDrapeauNoirBlanc.Visible = false;
+            lblAccueilLecon2.Visible = false;
+            lblAccueilComentLecon.Visible = false;
+            lblAccueilCours2.Visible = false;
+            lblAccueilExo.Visible = false;
+            btnExo.Visible = false;
+            btnAdmin.Visible = false;
+            lblAdminLaCasaDeBabel.Visible = true;
+            lblAcceuilLaCasaDeBabel.Visible = false;
+            btnAdminAccueil.Visible = true;
+            //remplir les deux combobox
+            DataRowCollection rowArray = Babbel.Tables["Cours"].Rows;
+            foreach (DataRow row in rowArray)
+            {
+                string titreCours = row.ItemArray[1].ToString();
+                cbxAdminCours.Items.Add(titreCours);
+            }
+
+            lblAdminCours.Visible = true;
+            cbxAdminCours.Visible = true;
+
+        }
+
+        private void cbxAdminCour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxAdminLecon.Items.Clear();
+            lblAdminLecon.Visible = true;
+            cbxAdminLecon.Visible = true;
+            DataRow InfosCours = Babbel.Tables["Cours"].Select($"titreCours = '{cbxAdminCours.SelectedItem}'")[0];
+            DataRow[] lecon = Babbel.Tables["Lecons"].Select($"numCours = '{InfosCours.ItemArray[0]}'");
+            foreach (DataRow row in lecon)
+            {
+                string titreLecon = row.Field<string>("titreLecon");
+                cbxAdminLecon.Items.Add(titreLecon);
+            }
+        }
+
+        private void cbxAdminLecon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataRow InfosCours = Babbel.Tables["Cours"].Select($"titreCours = '{cbxAdminCours.SelectedItem}'")[0];
+            DataRow InfosLecon = Babbel.Tables["Lecons"].Select($"titreLecon = '{cbxAdminLecon.SelectedItem}'")[0];
+            DataRow exo = Babbel.Tables["Exercices"].Select($"numCours = '{InfosCours.ItemArray[0]}' AND numLecon = '{InfosLecon.ItemArray[0]}'")[0];
+            DataRow phrase = Babbel.Tables["Phrases"].Select($"codePhrase = '{exo.ItemArray[5]}'")[0];
+
+
+            lblAdminConsigne.Visible = true;
+            lblAdminConsigne.Text = exo.ItemArray[3].ToString();
+            lblAdminPhrase.Visible = true;
+            lblAdminPhrase.Text = phrase.ItemArray[1].ToString();
+
+
+
         }
 
         //int largeur= 0;
