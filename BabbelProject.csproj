@@ -64,6 +64,12 @@
     <Compile Include="ExoDesordre.Designer.cs">
       <DependentUpon>ExoDesordre.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResultatLecon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResultatLecon.Designer.cs">
+      <DependentUpon>FormResultatLecon.cs</DependentUpon>
+    </Compile>
     <Compile Include="LeconVocabulaire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExoTrou.resx">
       <DependentUpon>ExoTrou.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResultatLecon.resx">
+      <DependentUpon>FormResultatLecon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LeconVocabulaire.resx">
       <DependentUpon>LeconVocabulaire.cs</DependentUpon>
@@ -130,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="baseIcon\iconEnCours2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espagne3.0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

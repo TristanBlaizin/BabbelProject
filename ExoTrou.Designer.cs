@@ -36,7 +36,6 @@
             this.btnTrouValider = new System.Windows.Forms.Button();
             this.btnTrouSuivant = new System.Windows.Forms.Button();
             this.btnAide = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblTrouConsigne
@@ -97,7 +96,7 @@
             this.btnTrouValider.TabIndex = 13;
             this.btnTrouValider.Text = "Valider";
             this.btnTrouValider.UseVisualStyleBackColor = false;
-            this.btnTrouValider.Click += new System.EventHandler(this.btnVAlider_Click);
+            this.btnTrouValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // btnTrouSuivant
             // 
@@ -127,16 +126,6 @@
             this.btnAide.UseVisualStyleBackColor = false;
             this.btnAide.Click += new System.EventHandler(this.btnAide_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(557, 51);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
-            this.linkLabel1.TabIndex = 16;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            // 
             // ExoTrou
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,7 +133,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnAide);
             this.Controls.Add(this.btnTrouSuivant);
             this.Controls.Add(this.btnTrouValider);
@@ -169,6 +157,5 @@
         private System.Windows.Forms.Button btnTrouValider;
         private System.Windows.Forms.Button btnTrouSuivant;
         private System.Windows.Forms.Button btnAide;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

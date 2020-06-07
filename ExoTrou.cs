@@ -89,19 +89,8 @@ namespace BabbelProject
             }
             
             lblTraduc.Text = reponse;
-            foreach (Control c in grbTrou.Controls)
-            {
-                if ( c is TextBox)
-                {
-                    this.TextChanged += new EventHandler(txtVerification_TextChanged);
-                }
-            }
-          
         }
-        public void txtVerification_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void btnAide_Click(object sender, EventArgs e)
         {
@@ -125,40 +114,37 @@ namespace BabbelProject
 
         private void btnTrouSuivant_Click(object sender, EventArgs e)
         {
-            btnVAlider_Click(sender, e);
-            try
+            btnValider_Click(sender, e);
+            DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+            if (InfosExoSuivant.Length != 0)
             {
-                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
-                if (InfosExoSuivant.Length != 0)
+                if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
                 {
-                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
-                    {
-                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
-                        LeconVocabulaire.Show();
+                    LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    LeconVocabulaire.Show();
 
-                    }
-                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
-                    {
-                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
-                        ExoDesordre.Show();
-                    }
-                    else
-                    {
-                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
-                        ExoATrou.Show();
-                    }
                 }
-                this.Close();
-
+                else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                {
+                    ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    ExoDesordre.Show();
+                }
+                else
+                {
+                    ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    ExoATrou.Show();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                FormResultatLecon FormResultatLecon = new FormResultatLecon(TableVerifExo, Babbel);
+                FormResultatLecon.Show();
             }
+            this.Close();
 
         }
 
-        private void btnVAlider_Click(object sender, EventArgs e)
+        private void btnValider_Click(object sender, EventArgs e)
         {
             DataRow motsPerdu = Babbel.Tables["Exercices"].Select($"listeMots = '{InfosExo.ItemArray[7]}'")[0];
             DataRow phraseComplete = Babbel.Tables["Phrases"].Select($"codePhrase = '{InfosExo.ItemArray[5]}'")[0];
@@ -175,6 +161,12 @@ namespace BabbelProject
                     if (reponse == tabMot[Int64.Parse(tabMotPerdu[0]) - 1])
                     {
                         c.BackColor = Color.FromArgb(50, 255, 126);
+                        DataRow dr = TableVerifExo.Select($"numExo = {InfosExo.ItemArray[0]}").FirstOrDefault();
+                        if (dr != null)
+                        {
+                            dr["finish"] = 1;
+                        }
+
                     }
                     else
                     {
@@ -182,6 +174,7 @@ namespace BabbelProject
                     }
                 }
             }
+            btnTrouValider.Enabled = false;
         }
     }
 }

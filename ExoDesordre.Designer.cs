@@ -32,13 +32,12 @@
             this.grpContainer = new System.Windows.Forms.GroupBox();
             this.grpSolution = new System.Windows.Forms.GroupBox();
             this.btnSolution = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTitre = new System.Windows.Forms.Label();
             this.btnDesordreValider = new System.Windows.Forms.Button();
             this.lblDesordreConsigne = new System.Windows.Forms.Label();
             this.btnDesordreSuivant = new System.Windows.Forms.Button();
             this.lblDesordreEtatExo = new System.Windows.Forms.Label();
             this.lblTraduc = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // grpContainer
@@ -80,17 +79,17 @@
             this.btnSolution.Click += new System.EventHandler(this.btnSolution_Click);
             this.btnSolution.MouseHover += new System.EventHandler(this.btnSolution_MouseHover);
             // 
-            // label6
+            // lblTitre
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
-            this.label6.Location = new System.Drawing.Point(20, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(368, 43);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "La Casa de Babbel";
+            this.lblTitre.AutoSize = true;
+            this.lblTitre.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitre.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
+            this.lblTitre.Location = new System.Drawing.Point(20, 36);
+            this.lblTitre.Name = "lblTitre";
+            this.lblTitre.Size = new System.Drawing.Size(368, 43);
+            this.lblTitre.TabIndex = 11;
+            this.lblTitre.Text = "La Casa de Babbel";
             // 
             // btnDesordreValider
             // 
@@ -157,28 +156,18 @@
             this.lblTraduc.Text = "traduction";
             this.lblTraduc.UseWaitCursor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "label1";
-            // 
             // ExoDesordre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTraduc);
             this.Controls.Add(this.lblDesordreEtatExo);
             this.Controls.Add(this.btnDesordreSuivant);
             this.Controls.Add(this.lblDesordreConsigne);
             this.Controls.Add(this.btnDesordreValider);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblTitre);
             this.Controls.Add(this.btnSolution);
             this.Controls.Add(this.grpSolution);
             this.Controls.Add(this.grpContainer);
@@ -194,12 +183,11 @@
         private System.Windows.Forms.GroupBox grpContainer;
         private System.Windows.Forms.GroupBox grpSolution;
         private System.Windows.Forms.Button btnSolution;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTitre;
         private System.Windows.Forms.Button btnDesordreValider;
         private System.Windows.Forms.Label lblDesordreConsigne;
         private System.Windows.Forms.Button btnDesordreSuivant;
         private System.Windows.Forms.Label lblDesordreEtatExo;
         private System.Windows.Forms.Label lblTraduc;
-        private System.Windows.Forms.Label label1;
     }
 }

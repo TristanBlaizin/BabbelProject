@@ -32,6 +32,11 @@
             this.cbxAcceuilUtilisateur = new System.Windows.Forms.ComboBox();
             this.lblAcceuilIdentification = new System.Windows.Forms.Label();
             this.gpbAcceuil = new System.Windows.Forms.GroupBox();
+            this.lblAdminNbExo = new System.Windows.Forms.Label();
+            this.btnAdminFin = new System.Windows.Forms.Button();
+            this.btnAdminSuivant = new System.Windows.Forms.Button();
+            this.btnAdminPrecedent = new System.Windows.Forms.Button();
+            this.btnAdminDebut = new System.Windows.Forms.Button();
             this.lblAdminPhrase = new System.Windows.Forms.Label();
             this.lblAdminConsigne = new System.Windows.Forms.Label();
             this.lblAdminCours = new System.Windows.Forms.Label();
@@ -56,7 +61,8 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.lblAdminLaCasaDeBabel = new System.Windows.Forms.Label();
             this.btnAdminAccueil = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAccueilBienvenue = new System.Windows.Forms.Label();
+            this.btnAccueilDeconnexion = new System.Windows.Forms.Button();
             this.gpbAcceuil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauCouleur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAccueilDrapeauNoirBlanc)).BeginInit();
@@ -70,7 +76,7 @@
             this.cbxAcceuilUtilisateur.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAcceuilUtilisateur.ForeColor = System.Drawing.Color.Transparent;
             this.cbxAcceuilUtilisateur.FormattingEnabled = true;
-            this.cbxAcceuilUtilisateur.Location = new System.Drawing.Point(155, 55);
+            this.cbxAcceuilUtilisateur.Location = new System.Drawing.Point(298, 228);
             this.cbxAcceuilUtilisateur.Margin = new System.Windows.Forms.Padding(0);
             this.cbxAcceuilUtilisateur.Name = "cbxAcceuilUtilisateur";
             this.cbxAcceuilUtilisateur.Size = new System.Drawing.Size(172, 26);
@@ -81,18 +87,25 @@
             // lblAcceuilIdentification
             // 
             this.lblAcceuilIdentification.AutoSize = true;
-            this.lblAcceuilIdentification.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcceuilIdentification.Location = new System.Drawing.Point(6, 54);
+            this.lblAcceuilIdentification.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcceuilIdentification.Location = new System.Drawing.Point(300, 190);
             this.lblAcceuilIdentification.Name = "lblAcceuilIdentification";
-            this.lblAcceuilIdentification.Size = new System.Drawing.Size(146, 23);
+            this.lblAcceuilIdentification.Size = new System.Drawing.Size(170, 23);
             this.lblAcceuilIdentification.TabIndex = 2;
             this.lblAcceuilIdentification.Text = "Identifiez-vous: ";
             // 
             // gpbAcceuil
             // 
             this.gpbAcceuil.BackColor = System.Drawing.Color.Transparent;
+            this.gpbAcceuil.Controls.Add(this.lblAdminNbExo);
+            this.gpbAcceuil.Controls.Add(this.btnAdminFin);
+            this.gpbAcceuil.Controls.Add(this.btnAdminSuivant);
+            this.gpbAcceuil.Controls.Add(this.btnAdminPrecedent);
+            this.gpbAcceuil.Controls.Add(this.btnAdminDebut);
             this.gpbAcceuil.Controls.Add(this.lblAdminPhrase);
+            this.gpbAcceuil.Controls.Add(this.cbxAcceuilUtilisateur);
             this.gpbAcceuil.Controls.Add(this.lblAdminConsigne);
+            this.gpbAcceuil.Controls.Add(this.lblAcceuilIdentification);
             this.gpbAcceuil.Controls.Add(this.lblAdminCours);
             this.gpbAcceuil.Controls.Add(this.lblAdminLecon);
             this.gpbAcceuil.Controls.Add(this.cbxAdminLecon);
@@ -109,8 +122,6 @@
             this.gpbAcceuil.Controls.Add(this.lblAcceuilLecon);
             this.gpbAcceuil.Controls.Add(this.lblAccueilCours2);
             this.gpbAcceuil.Controls.Add(this.lblAcceuilCoursActuelle);
-            this.gpbAcceuil.Controls.Add(this.lblAcceuilIdentification);
-            this.gpbAcceuil.Controls.Add(this.cbxAcceuilUtilisateur);
             this.gpbAcceuil.Controls.Add(this.ptbAccueilDrapeauCouleur);
             this.gpbAcceuil.Controls.Add(this.ptbAccueilDrapeauNoirBlanc);
             this.gpbAcceuil.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,6 +132,79 @@
             this.gpbAcceuil.TabIndex = 3;
             this.gpbAcceuil.TabStop = false;
             this.gpbAcceuil.Text = "Mon cours actuel: ";
+            // 
+            // lblAdminNbExo
+            // 
+            this.lblAdminNbExo.AutoSize = true;
+            this.lblAdminNbExo.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminNbExo.Location = new System.Drawing.Point(336, 276);
+            this.lblAdminNbExo.Name = "lblAdminNbExo";
+            this.lblAdminNbExo.Size = new System.Drawing.Size(76, 23);
+            this.lblAdminNbExo.TabIndex = 26;
+            this.lblAdminNbExo.Text = "#nbExo";
+            this.lblAdminNbExo.Visible = false;
+            // 
+            // btnAdminFin
+            // 
+            this.btnAdminFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAdminFin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminFin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAdminFin.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAdminFin.Location = new System.Drawing.Point(535, 268);
+            this.btnAdminFin.Name = "btnAdminFin";
+            this.btnAdminFin.Size = new System.Drawing.Size(109, 38);
+            this.btnAdminFin.TabIndex = 25;
+            this.btnAdminFin.Text = ">>";
+            this.btnAdminFin.UseVisualStyleBackColor = false;
+            this.btnAdminFin.Visible = false;
+            // 
+            // btnAdminSuivant
+            // 
+            this.btnAdminSuivant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAdminSuivant.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminSuivant.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAdminSuivant.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminSuivant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAdminSuivant.Location = new System.Drawing.Point(420, 268);
+            this.btnAdminSuivant.Name = "btnAdminSuivant";
+            this.btnAdminSuivant.Size = new System.Drawing.Size(109, 38);
+            this.btnAdminSuivant.TabIndex = 24;
+            this.btnAdminSuivant.Text = ">";
+            this.btnAdminSuivant.UseVisualStyleBackColor = false;
+            this.btnAdminSuivant.Visible = false;
+            this.btnAdminSuivant.Click += new System.EventHandler(this.btnAdminSuivant_Click);
+            // 
+            // btnAdminPrecedent
+            // 
+            this.btnAdminPrecedent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAdminPrecedent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminPrecedent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAdminPrecedent.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminPrecedent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAdminPrecedent.Location = new System.Drawing.Point(221, 268);
+            this.btnAdminPrecedent.Name = "btnAdminPrecedent";
+            this.btnAdminPrecedent.Size = new System.Drawing.Size(109, 38);
+            this.btnAdminPrecedent.TabIndex = 23;
+            this.btnAdminPrecedent.Text = "<";
+            this.btnAdminPrecedent.UseVisualStyleBackColor = false;
+            this.btnAdminPrecedent.Visible = false;
+            this.btnAdminPrecedent.Click += new System.EventHandler(this.btnAdminPrecedent_Click);
+            // 
+            // btnAdminDebut
+            // 
+            this.btnAdminDebut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAdminDebut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminDebut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAdminDebut.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminDebut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAdminDebut.Location = new System.Drawing.Point(106, 268);
+            this.btnAdminDebut.Name = "btnAdminDebut";
+            this.btnAdminDebut.Size = new System.Drawing.Size(109, 38);
+            this.btnAdminDebut.TabIndex = 22;
+            this.btnAdminDebut.Text = "<<";
+            this.btnAdminDebut.UseVisualStyleBackColor = false;
+            this.btnAdminDebut.Visible = false;
             // 
             // lblAdminPhrase
             // 
@@ -139,9 +223,8 @@
             this.lblAdminConsigne.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminConsigne.Location = new System.Drawing.Point(7, 92);
             this.lblAdminConsigne.Name = "lblAdminConsigne";
-            this.lblAdminConsigne.Size = new System.Drawing.Size(96, 23);
+            this.lblAdminConsigne.Size = new System.Drawing.Size(0, 23);
             this.lblAdminConsigne.TabIndex = 21;
-            this.lblAdminConsigne.Text = "#consigne";
             this.lblAdminConsigne.Visible = false;
             // 
             // lblAdminCours
@@ -190,7 +273,7 @@
             this.cbxAdminCours.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAdminCours.ForeColor = System.Drawing.Color.Transparent;
             this.cbxAdminCours.FormattingEnabled = true;
-            this.cbxAdminCours.Location = new System.Drawing.Point(87, 42);
+            this.cbxAdminCours.Location = new System.Drawing.Point(87, 44);
             this.cbxAdminCours.Margin = new System.Windows.Forms.Padding(0);
             this.cbxAdminCours.Name = "cbxAdminCours";
             this.cbxAdminCours.Size = new System.Drawing.Size(279, 26);
@@ -202,7 +285,7 @@
             // 
             this.lblPresentation5.AutoSize = true;
             this.lblPresentation5.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresentation5.Location = new System.Drawing.Point(8, 214);
+            this.lblPresentation5.Location = new System.Drawing.Point(8, 134);
             this.lblPresentation5.Name = "lblPresentation5";
             this.lblPresentation5.Size = new System.Drawing.Size(414, 18);
             this.lblPresentation5.TabIndex = 15;
@@ -212,7 +295,7 @@
             // 
             this.lblPresentation4.AutoSize = true;
             this.lblPresentation4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresentation4.Location = new System.Drawing.Point(8, 196);
+            this.lblPresentation4.Location = new System.Drawing.Point(7, 112);
             this.lblPresentation4.Name = "lblPresentation4";
             this.lblPresentation4.Size = new System.Drawing.Size(729, 18);
             this.lblPresentation4.TabIndex = 14;
@@ -223,7 +306,7 @@
             // 
             this.lblPresentation3.AutoSize = true;
             this.lblPresentation3.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresentation3.Location = new System.Drawing.Point(8, 166);
+            this.lblPresentation3.Location = new System.Drawing.Point(8, 88);
             this.lblPresentation3.Name = "lblPresentation3";
             this.lblPresentation3.Size = new System.Drawing.Size(111, 18);
             this.lblPresentation3.TabIndex = 13;
@@ -233,7 +316,7 @@
             // 
             this.lblPresentation2.AutoSize = true;
             this.lblPresentation2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresentation2.Location = new System.Drawing.Point(8, 148);
+            this.lblPresentation2.Location = new System.Drawing.Point(6, 64);
             this.lblPresentation2.Name = "lblPresentation2";
             this.lblPresentation2.Size = new System.Drawing.Size(724, 18);
             this.lblPresentation2.TabIndex = 12;
@@ -244,7 +327,7 @@
             // 
             this.lblPresentation1.AutoSize = true;
             this.lblPresentation1.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresentation1.Location = new System.Drawing.Point(8, 125);
+            this.lblPresentation1.Location = new System.Drawing.Point(254, 24);
             this.lblPresentation1.Name = "lblPresentation1";
             this.lblPresentation1.Size = new System.Drawing.Size(304, 18);
             this.lblPresentation1.TabIndex = 11;
@@ -307,7 +390,7 @@
             // 
             this.lblAccueilCours2.AutoSize = true;
             this.lblAccueilCours2.Font = new System.Drawing.Font("Georgia", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccueilCours2.Location = new System.Drawing.Point(182, 111);
+            this.lblAccueilCours2.Location = new System.Drawing.Point(192, 59);
             this.lblAccueilCours2.Name = "lblAccueilCours2";
             this.lblAccueilCours2.Size = new System.Drawing.Size(0, 18);
             this.lblAccueilCours2.TabIndex = 4;
@@ -316,7 +399,7 @@
             // 
             this.lblAcceuilCoursActuelle.AutoSize = true;
             this.lblAcceuilCoursActuelle.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcceuilCoursActuelle.Location = new System.Drawing.Point(7, 106);
+            this.lblAcceuilCoursActuelle.Location = new System.Drawing.Point(11, 54);
             this.lblAcceuilCoursActuelle.Name = "lblAcceuilCoursActuelle";
             this.lblAcceuilCoursActuelle.Size = new System.Drawing.Size(175, 23);
             this.lblAcceuilCoursActuelle.TabIndex = 3;
@@ -349,7 +432,7 @@
             this.lblAcceuilLaCasaDeBabel.BackColor = System.Drawing.Color.Transparent;
             this.lblAcceuilLaCasaDeBabel.Font = new System.Drawing.Font("Georgia", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcceuilLaCasaDeBabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(95)))), ((int)(((byte)(65)))));
-            this.lblAcceuilLaCasaDeBabel.Location = new System.Drawing.Point(215, 48);
+            this.lblAcceuilLaCasaDeBabel.Location = new System.Drawing.Point(226, 18);
             this.lblAcceuilLaCasaDeBabel.Name = "lblAcceuilLaCasaDeBabel";
             this.lblAcceuilLaCasaDeBabel.Size = new System.Drawing.Size(368, 43);
             this.lblAcceuilLaCasaDeBabel.TabIndex = 6;
@@ -398,15 +481,36 @@
             this.btnAdminAccueil.Text = "Accueil";
             this.btnAdminAccueil.UseVisualStyleBackColor = false;
             this.btnAdminAccueil.Visible = false;
+            this.btnAdminAccueil.Click += new System.EventHandler(this.btnAdminAccueil_Click);
             // 
-            // label1
+            // lblAccueilBienvenue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(386, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "label1";
+            this.lblAccueilBienvenue.AutoSize = true;
+            this.lblAccueilBienvenue.BackColor = System.Drawing.Color.Transparent;
+            this.lblAccueilBienvenue.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccueilBienvenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.lblAccueilBienvenue.Location = new System.Drawing.Point(254, 79);
+            this.lblAccueilBienvenue.Name = "lblAccueilBienvenue";
+            this.lblAccueilBienvenue.Size = new System.Drawing.Size(125, 23);
+            this.lblAccueilBienvenue.TabIndex = 27;
+            this.lblAccueilBienvenue.Text = "#bienvenue";
+            this.lblAccueilBienvenue.Visible = false;
+            // 
+            // btnAccueilDeconnexion
+            // 
+            this.btnAccueilDeconnexion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(127)))), ((int)(((byte)(103)))));
+            this.btnAccueilDeconnexion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAccueilDeconnexion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(69)))), ((int)(((byte)(105)))));
+            this.btnAccueilDeconnexion.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccueilDeconnexion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(215)))), ((int)(((byte)(148)))));
+            this.btnAccueilDeconnexion.Location = new System.Drawing.Point(12, 12);
+            this.btnAccueilDeconnexion.Name = "btnAccueilDeconnexion";
+            this.btnAccueilDeconnexion.Size = new System.Drawing.Size(148, 38);
+            this.btnAccueilDeconnexion.TabIndex = 28;
+            this.btnAccueilDeconnexion.Text = "Deconnexion";
+            this.btnAccueilDeconnexion.UseVisualStyleBackColor = false;
+            this.btnAccueilDeconnexion.Visible = false;
+            this.btnAccueilDeconnexion.Click += new System.EventHandler(this.btnAccueilDeconnexion_Click);
             // 
             // Accueil
             // 
@@ -415,7 +519,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(121)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnAccueilDeconnexion);
+            this.Controls.Add(this.lblAccueilBienvenue);
             this.Controls.Add(this.btnAdminAccueil);
             this.Controls.Add(this.lblAdminLaCasaDeBabel);
             this.Controls.Add(this.btnAdmin);
@@ -459,9 +564,15 @@
         private System.Windows.Forms.Label lblAdminCours;
         private System.Windows.Forms.Label lblAdminLecon;
         private System.Windows.Forms.Button btnAdminAccueil;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAdminConsigne;
         private System.Windows.Forms.Label lblAdminPhrase;
+        private System.Windows.Forms.Button btnAdminFin;
+        private System.Windows.Forms.Button btnAdminSuivant;
+        private System.Windows.Forms.Button btnAdminPrecedent;
+        private System.Windows.Forms.Button btnAdminDebut;
+        private System.Windows.Forms.Label lblAdminNbExo;
+        private System.Windows.Forms.Label lblAccueilBienvenue;
+        private System.Windows.Forms.Button btnAccueilDeconnexion;
     }
 }
 

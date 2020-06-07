@@ -128,7 +128,6 @@ namespace BabbelProject
             lblDesordreConsigne.Text = InfosExo.ItemArray[3].ToString();
             int codePhrase = (int)InfosExo.ItemArray[5];
             phraseJuste = Babbel.Tables["Phrases"].Select($"codePhrase = {codePhrase}")[0].ItemArray[1].ToString();
-            label1.Text = phraseJuste;
             InitPhrase();
             InitLabelSolution(phraseJuste.Split(' ').Length, phraseJuste.Split(' '));
             lblDesordreEtatExo.Text = "Cet exercice est en cours.";
@@ -244,7 +243,8 @@ namespace BabbelProject
             }
             else
             {
-
+                FormResultatLecon FormResultatLecon = new FormResultatLecon(TableVerifExo, Babbel);
+                FormResultatLecon.Show();
             }
             this.Close();
 
@@ -274,6 +274,12 @@ namespace BabbelProject
                     lblRep.Name = "lblReponse";
                     lblRep.ForeColor = Color.FromArgb(50, 255, 126);
                 }
+                DataRow dr = TableVerifExo.Select($"numExo = {InfosExo.ItemArray[0]}").FirstOrDefault();
+                if (dr != null)
+                {
+                    dr["finish"] = 1;
+                }
+
             }
             else
             {

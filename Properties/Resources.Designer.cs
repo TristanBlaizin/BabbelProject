@@ -63,79 +63,9 @@ namespace BabbelProject.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconEnCours {
+        internal static System.Drawing.Bitmap espagne3_0 {
             get {
-                object obj = ResourceManager.GetObject("iconEnCours", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconEnCours2 {
-            get {
-                object obj = ResourceManager.GetObject("iconEnCours2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconRate {
-            get {
-                object obj = ResourceManager.GetObject("iconRate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconRate2 {
-            get {
-                object obj = ResourceManager.GetObject("iconRate2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconRate3 {
-            get {
-                object obj = ResourceManager.GetObject("iconRate3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconValide {
-            get {
-                object obj = ResourceManager.GetObject("iconValide", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconValide2 {
-            get {
-                object obj = ResourceManager.GetObject("iconValide2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconValide3 {
-            get {
-                object obj = ResourceManager.GetObject("iconValide3", resourceCulture);
+                object obj = ResourceManager.GetObject("espagne3.0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

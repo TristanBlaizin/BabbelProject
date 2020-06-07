@@ -35,27 +35,22 @@ namespace BabbelProject
         {
             DataRow[] InfosConcerneMot = Babbel.Tables["ConcerneMots"].Select($"numCours = '{InfosExo.ItemArray[1]}' AND numLecon = '{InfosExo.ItemArray[2]}' AND numExo = '{InfosExo.ItemArray[0]}'");
             DataRow InfosMots;
-
+            DataRow dr = TableVerifExo.Select($"numExo = {InfosExo.ItemArray[0]}").FirstOrDefault();
+            if (dr != null)
+            {
+                dr["finish"] = 2;
+            }
             string str = string.Empty;
             int compteur = 0;
             int positionHorizonGenerale = 0;
             int hauteur = 280;
-            int nbImage = 0;
-            foreach (DataRow row in InfosConcerneMot)
-            {
-                nbImage++;
-            }
+            int nbImage = InfosConcerneMot.Length;
             int largeur = 776 / nbImage;
             foreach (DataRow row in InfosConcerneMot)
             {
-                foreach (Object item in row.ItemArray)
-                {
-                    str += item.ToString() + " ";
-                }
-                str += "\n";
 
                 InfosMots = Babbel.Tables["Mots"].Select($"numMot = '{InfosConcerneMot[compteur].ItemArray[3]}'")[0];
-                
+
 
                 //Groupe box
                 GroupBox grb = new GroupBox();
@@ -63,7 +58,7 @@ namespace BabbelProject
                 grb.Left = positionHorizonGenerale;
                 grb.Top = 0;
                 grb.BackColor = Color.Transparent;
-                grb.Size = new Size(largeur , hauteur) ;                 
+                grb.Size = new Size(largeur, hauteur);
 
                 //Label mot espagnol
                 Label lbl = new Label();
@@ -87,7 +82,7 @@ namespace BabbelProject
                 pcb.Visible = true;
                 pcb.Left = 10;
                 pcb.Top = lbl.Height + 15;
-                pcb.Size = new Size(largeur-20,hauteur/2);
+                pcb.Size = new Size(largeur - 20, hauteur / 2);
                 if (!string.IsNullOrEmpty(InfosMots.ItemArray[3].ToString()))
                 {
                     pcb.Image = Image.FromFile($"..\\..\\baseImages\\{InfosMots.ItemArray[3].ToString()}");
@@ -131,43 +126,35 @@ namespace BabbelProject
 
         }
 
-        private void btnTrouTerminer_Click(object sender, EventArgs e)
+        private void btnSuivant_Click(object sender, EventArgs e)
         {
-            try
+            DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+            if (InfosExoSuivant.Length != 0)
             {
-                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
-                if (InfosExoSuivant.Length != 0)
+                if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
                 {
-                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
-                    {
-                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
-                        LeconVocabulaire.Show();
+                    LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    LeconVocabulaire.Show();
 
-                    }
-                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
-                    {
-                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
-                        ExoDesordre.Show();
-                    }
-                    else
-                    {
-                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
-                        ExoATrou.Show();
-                    }
                 }
-                this.Close();
-
+                else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                {
+                    ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    ExoDesordre.Show();
+                }
+                else
+                {
+                    ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    ExoATrou.Show();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                FormResultatLecon FormResultatLecon = new FormResultatLecon(TableVerifExo, Babbel);
+                FormResultatLecon.Show();
             }
+            this.Close();
 
-
-        }
-
-        private void pnl_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }
