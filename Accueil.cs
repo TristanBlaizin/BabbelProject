@@ -195,7 +195,7 @@ namespace BabbelProject
             
             if ((int)(currentExo.ItemArray[5]) == 0)
             {
-                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(currentExo, Babbel, utilisateur);
+                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(currentExo, Babbel, utilisateur, TableVerifExo);
                 LeconVocabulaire.ShowDialog();
 
             }
@@ -206,7 +206,7 @@ namespace BabbelProject
             }
             else
             {
-                ExoTrou ExoATrou = new ExoTrou(currentExo, Babbel, utilisateur);
+                ExoTrou ExoATrou = new ExoTrou(currentExo, Babbel, utilisateur, TableVerifExo);
                 ExoATrou.ShowDialog();
             }
 

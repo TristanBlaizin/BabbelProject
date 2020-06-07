@@ -18,17 +18,19 @@ namespace BabbelProject
         public DataRow InfosExo;
         public DataSet Babbel;
         public string utilisateur;
+        public DataTable TableVerifExo;
         public ExoTrou()
         {
             InitializeComponent();
         }
 
-        public ExoTrou(DataRow InfosExo, DataSet BDD, string utilisateur)
+        public ExoTrou(DataRow InfosExo, DataSet BDD, string utilisateur, DataTable TableVerifExo)
         {
             InitializeComponent();
             this.InfosExo = InfosExo;
             this.Babbel = BDD;
             this.utilisateur = utilisateur;
+            this.TableVerifExo = TableVerifExo;
         }
         private void ExoTrou_Load(object sender, EventArgs e)
         {
@@ -131,7 +133,7 @@ namespace BabbelProject
                 {
                     if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
                     {
-                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
                         LeconVocabulaire.Show();
 
                     }
@@ -142,7 +144,7 @@ namespace BabbelProject
                     }
                     else
                     {
-                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
                         ExoATrou.Show();
                     }
                 }

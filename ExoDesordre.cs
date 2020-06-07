@@ -221,13 +221,13 @@ namespace BabbelProject
         private void btnDesordreSuivant_Click(object sender, EventArgs e)
         {
             btnValider_Click(sender, e);
-      
+            
             DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
             if (InfosExoSuivant.Length != 0)
-            {
+            { 
                 if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
                 {
-                    LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                    LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
                     LeconVocabulaire.Show();
 
                 }
@@ -238,9 +238,13 @@ namespace BabbelProject
                 }
                 else
                 {
-                    ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                    ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
                     ExoATrou.Show();
                 }
+            }
+            else
+            {
+
             }
             this.Close();
 
