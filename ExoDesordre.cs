@@ -17,6 +17,7 @@ namespace BabbelProject
     {
         public DataRow InfosExo;
         public DataSet Babbel;
+        public DataTable TableVerifExo;
         public string utilisateur;
 
         public string phraseJuste;
@@ -113,12 +114,13 @@ namespace BabbelProject
             InitializeComponent();
         }
 
-        public ExoDesordre(DataRow InfosExo, DataSet BDD, string utilisateur)
+        public ExoDesordre(DataRow InfosExo, DataSet BDD, string utilisateur, DataTable TableVerifExo)
         {
             InitializeComponent();
             this.InfosExo = InfosExo;
             this.Babbel = BDD;
             this.utilisateur = utilisateur;
+            this.TableVerifExo = TableVerifExo;
         }
 
         private void ExoDesordre_Load(object sender, EventArgs e)
@@ -219,35 +221,30 @@ namespace BabbelProject
         private void btnDesordreSuivant_Click(object sender, EventArgs e)
         {
             btnValider_Click(sender, e);
-            try
+      
+            DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
+            if (InfosExoSuivant.Length != 0)
             {
-                DataRow[] InfosExoSuivant = Babbel.Tables["Exercices"].Select($"numCours = '{InfosExo.ItemArray[1].ToString()}' AND numLecon = '{InfosExo.ItemArray[2].ToString()}' AND numExo = {(int)(InfosExo.ItemArray[0]) + 1}");
-                if (InfosExoSuivant.Length != 0)
+                if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
                 {
-                    if ((int)(InfosExoSuivant[0].ItemArray[5]) == 0)
-                    {
-                        LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
-                        LeconVocabulaire.Show();
+                    LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExoSuivant[0], Babbel, utilisateur);
+                    LeconVocabulaire.Show();
 
-                    }
-                    else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
-                    {
-                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
-                        ExoDesordre.Show();
-                    }
-                    else
-                    {
-                        ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
-                        ExoATrou.Show();
-                    }
                 }
-                this.Close();
+                else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
+                {
+                    ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
+                    ExoDesordre.Show();
+                }
+                else
+                {
+                    ExoTrou ExoATrou = new ExoTrou(InfosExoSuivant[0], Babbel, utilisateur);
+                    ExoATrou.Show();
+                }
+            }
+            this.Close();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+      
 
         }
 

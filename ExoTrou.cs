@@ -137,7 +137,7 @@ namespace BabbelProject
                     }
                     else if ((bool)(InfosExoSuivant[0].ItemArray[6]))
                     {
-                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur);
+                        ExoDesordre ExoDesordre = new ExoDesordre(InfosExoSuivant[0], Babbel, utilisateur, TableVerifExo);
                         ExoDesordre.Show();
                     }
                     else

@@ -19,6 +19,10 @@ namespace BabbelProject
 
         public DataSet Babbel = new DataSet();
         public DataTable TableVerifExo = new DataTable();
+        public DataRow InfosCours;
+        public DataRow InfosLecons;
+        public DataRow InfosUtilisateur;
+        public DataRow[] InfosExo;
         public bool firstLoad = true;
 
         public List<string> admin = new List<string>();
@@ -77,6 +81,7 @@ namespace BabbelProject
         public void changeTableVerif(DataRow utilisateur, DataRow[] exos)
         {
             int i = 0;
+            TableVerifExo.Rows.Clear();
             foreach (DataRow row in exos)
             {
                 if(i < (int)utilisateur.ItemArray[4])
@@ -118,10 +123,14 @@ namespace BabbelProject
             }
             string utilisateur = cbxAcceuilUtilisateur.SelectedItem.ToString();
             string prenom = utilisateur.Split(' ')[0];
-            DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
+            InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
+
             string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
-            DataRow InfosCours = Babbel.Tables["Cours"].Select($"numCours = '{codeCourActuel}'")[0];
-            DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
+
+            InfosCours = Babbel.Tables["Cours"].Select($"numCours = '{codeCourActuel}'")[0];
+            InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
+            InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = {InfosLecons.ItemArray[0]}");
+            
             int NbExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0]}'").Length;
             lblAccueilCours2.Text = InfosCours.ItemArray[1].ToString();
             lblAccueilLecon2.Text = InfosLecons.ItemArray[2].ToString();
@@ -129,8 +138,16 @@ namespace BabbelProject
             lblAccueilExo.Text = $"Exercices terminés: {InfosUtilisateur.ItemArray[4]}/{NbExo.ToString()}";
             ptbAccueilDrapeauNoirBlanc.Visible = true;
 
-            changeDrapeau();
             changeTableVerif(InfosUtilisateur, Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0]}'"));
+            changeDrapeau();
+            
+            string str = string.Empty;
+            foreach(DataRow row in TableVerifExo.Rows)
+            {
+                str += $"{row.ItemArray[0].ToString()} {row.ItemArray[1].ToString()}";
+                str += "\n";
+            }
+            label1.Text = str;
             for (int i = 0; i<admin.Count; i++)
             {
                 if (admin[i] == cbxAcceuilUtilisateur.SelectedItem.ToString())
@@ -147,30 +164,55 @@ namespace BabbelProject
 
         private void BtnExo_Click(object sender, EventArgs e)
         {
+            bool firstfalse = false;
+            int i = 0;
+            int numeroExo = 0;
             string utilisateur = cbxAcceuilUtilisateur.SelectedItem.ToString();
-            string prenom = utilisateur.Split(' ')[0];
-            DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
-            string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
-            DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
-            DataRow[] InfosExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0].ToString()}'");
-            if ((int)(InfosExo[0].ItemArray[5]) == 0)
+
+            DataRow currentExo = null;
+
+            while (!firstfalse && i < TableVerifExo.Rows.Count)
             {
-                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(InfosExo[0], Babbel,utilisateur);
+                if(!(bool)TableVerifExo.Rows[i].ItemArray[1])
+                {
+                    numeroExo = (int)TableVerifExo.Rows[i].ItemArray[0];
+                    firstfalse = true;
+                }
+                i++;
+            }
+            if(numeroExo > 0)
+            {
+                currentExo = InfosExo[numeroExo - 1];
+
+            }
+
+            if (i == TableVerifExo.Rows.Count)
+            {
+                currentExo = Babbel.Tables["Exercices"].Select($"numCours = '{InfosCours.ItemArray[0].ToString()}' AND numLecon = '{(int)InfosLecons.ItemArray[0] + 1}'")[0];
+                numeroExo = (int)currentExo.ItemArray[0];
+            }
+
+            
+            if ((int)(currentExo.ItemArray[5]) == 0)
+            {
+                LeconVocabulaire LeconVocabulaire = new LeconVocabulaire(currentExo, Babbel, utilisateur);
                 LeconVocabulaire.ShowDialog();
 
             }
-            else if ((bool)(InfosExo[0].ItemArray[6]))
+            else if ((bool)(currentExo.ItemArray[6]))
             {
-                ExoDesordre ExoDesordre = new ExoDesordre(InfosExo[0], Babbel, utilisateur);
+                ExoDesordre ExoDesordre = new ExoDesordre(currentExo, Babbel, utilisateur, TableVerifExo);
                 ExoDesordre.ShowDialog();
             }
             else
             {
-                ExoTrou ExoATrou = new ExoTrou(InfosExo[0], Babbel, utilisateur);
+                ExoTrou ExoATrou = new ExoTrou(currentExo, Babbel, utilisateur);
                 ExoATrou.ShowDialog();
             }
 
             DialogResult = DialogResult.OK;
+            
+           
         }
 
         private void cbxUtilisateur_KeyPress(object sender, KeyPressEventArgs e)
@@ -240,31 +282,16 @@ namespace BabbelProject
 
         }
 
-        int hauteur = 0;
-        int largeur = 0;
-        // ptbAccueilDrapeauNoirBlanc
-        // 
+
         private void changeDrapeau()
-        { 
-            int exoTerm = TableVerifExo.Select("finish = true").Length;
-            hauteur +=195;
-            string utilisateur = cbxAcceuilUtilisateur.SelectedItem.ToString();
-            string prenom = utilisateur.Split(' ')[0];
-            DataRow InfosUtilisateur = Babbel.Tables["Utilisateurs"].Select($"pnUtil = '{prenom}'")[0];
-            string codeCourActuel = InfosUtilisateur.ItemArray[6].ToString();
-            DataRow InfosCours = Babbel.Tables["Cours"].Select($"numCours = '{codeCourActuel}'")[0];
-            DataRow InfosLecons = Babbel.Tables["Lecons"].Select($"numCours = '{codeCourActuel}'")[0];
-            int NbExo = Babbel.Tables["Exercices"].Select($"numCours = '{codeCourActuel}' AND numLecon = '{InfosLecons.ItemArray[0]}'").Length;
-            if (NbExo == 9)
-            {
-                largeur = exoTerm * (132 / NbExo);
-            }
-            else
-            {
-                largeur = exoTerm * (140 / NbExo);
-            }
-            Image nomImage = ptbAccueilDrapeauCouleur.Image;
-            ptbAccueilDrapeauCouleur.Size = new Size(hauteur, largeur);
+        {
+            ptbAccueilDrapeauNoirBlanc.Visible = false;
+            int nbExoTotaux = TableVerifExo.Rows.Count;
+            int nbExoFait = TableVerifExo.Select("finish = True").Length;
+            int hauteur = ptbAccueilDrapeauNoirBlanc.Height;
+            int largeur = (ptbAccueilDrapeauNoirBlanc.Width / nbExoTotaux) * nbExoFait;
+            label1.Text = $"{label1.Text} \n {nbExoTotaux.ToString()} {nbExoFait.ToString()} {hauteur.ToString()} {largeur.ToString()}";
+            ptbAccueilDrapeauCouleur.Size = new Size(largeur,hauteur);
             ptbAccueilDrapeauCouleur.Visible = true;
             
             
